@@ -1,0 +1,70 @@
+.button-div {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.navbar {
+	border-radius: 0;
+}
+
+.header {
+	width: 100%;
+	margin: 0 auto;
+}
+
+ul.nav.nav-tabs {
+	margin-bottom: 10px;
+}
+
+#content {
+	width: 60%;
+	margin: 0 auto;
+}
+
+select {
+	margin-right: 10px;
+}
+
+.modal-backdrop {
+	z-index: 1;
+}
+
+.modal-dialog {
+	z-index: 1000;
+}
+
+button.add-treatment-btn {
+	margin-top: 15px;
+}
+
+li.plain-list-item {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+li.plain-list-item .pull-right {
+	margin-top: 15px;
+}
+
+li.media.friendlist-item {
+	margin-bottom: -30px;
+}
+
+.status-updater {
+	resize: none !important; 
+}
+
+.feed-subitems {
+	background-color: transparent !important;
+}
+
+.feed-item {
+	background-color: transparent !important;
+	display: block;
+}
+.separator {
+	padding: 5px;
+}
+.feed-comment {
+	border-top: 1px solid #ddd;
+}
