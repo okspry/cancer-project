@@ -1,5 +1,5 @@
 var React = require('react');
-var FriendActions = require('../../actions/FriendActions');
+var FriendActions = require('../../../actions/FriendActions');
 
 var ItemRemover = React.createClass({
 	render: function() {

@@ -4,7 +4,7 @@ var InviteFriendForm = React.createClass({
 	render: function() {
 		return (
 
-      <div>
+      <div role="tabpanel" className="tab-pane fade" id="invite-friend-form">
 
         <div className="alert alert-info" role="alert">
           If there's someone who isn't yet a member of PRODUCT NAME, send them an email to join up!

@@ -9,21 +9,12 @@ var TreatmentsGenInfo = React.createClass({
 		return (
 
       <div>
-        <h2>Jeremy Leventhal</h2>
-        <div>
-          <label>Birthday</label>
-          <span>
-            <small>&emsp;21-Feb-1945<i>&emsp;70 years old</i></small>
-          </span>
-        </div>
-
   			<h3>Treatment History</h3>
-
         <div className="clearfix">
           <h4>General History</h4>
           <div className="pull-right">
             <Link 
-              global href="/treatments/general-history-form"
+              global href="/profile/treatments/general-history-form"
               className="glyphicon glyphicon-pencil"></Link>
           </div>
           <div>
@@ -44,7 +35,6 @@ var TreatmentsGenInfo = React.createClass({
         <Surgeries />
         <hr />
         <Chemotherapies />
-        
       </div>
 
 		)

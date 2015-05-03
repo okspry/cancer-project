@@ -6,7 +6,7 @@ var FriendsList = React.createClass({
   render: function() {
     return (
 
-      <div>
+      <div className="clearfix" id="friends-list">
         <DeleteFriendsModal />
 
         <ul className="media-list">

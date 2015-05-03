@@ -3,6 +3,10 @@
 	padding-top: 10px;
 }
 
+.btn {
+	margin-right: 5px;
+}
+
 .navbar {
 	border-radius: 0;
 }
@@ -14,6 +18,11 @@
 
 ul.nav.nav-tabs {
 	margin-bottom: 10px;
+}
+
+.navbar-nav {
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 #content {
@@ -67,4 +76,14 @@ li.media.friendlist-item {
 }
 .feed-comment {
 	border-top: 1px solid #ddd;
+}
+
+#profile-pills {
+	margin-top: -20px;
+}
+#profile-name {
+	padding: 20px;
+}
+.profile-image {
+	border: 4px solid #fff;
 }

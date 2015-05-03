@@ -1,9 +1,10 @@
 var React = require('react');
 var Template = require('./Template');
 var Home = require('./home/Home');
-var Relationships = require('./relationships/Relationships');
-var TreatmentSummary = require('./treatments/TreatmentSummary');
-var TreatmentHistoryForm = require('./treatments/general-history-form/TreatmentHistoryForm.js');
+var Profile = require('./profile/Profile');
+var Relationships = require('./profile/relationships/Relationships');
+var TreatmentSummary = require('./profile/treatments/TreatmentSummary');
+var TreatmentHistoryForm = require('./profile/treatments/general-history-form/TreatmentHistoryForm');
 var NotFoundPage = require('./NotFoundPage');
 
 var Router = require('react-router-component');
@@ -31,9 +32,10 @@ var App = React.createClass({
 	      <Template>
 					<Locations>
 						<Location path="/home" handler={Home} />
-						<Location path="/relationships" handler={Relationships} friends={this.state.allFriends} />
-						<Location path="/treatments" handler={TreatmentSummary} />
-						<Location path="/treatments/general-history-form" handler={TreatmentHistoryForm} />
+						<Location path="/profile" handler={Profile} />
+						<Location path="/profile/treatments" handler={TreatmentSummary} />
+						<Location path="/profile/relationships" handler={Relationships} friends={this.state.allFriends} />
+						<Location path="/profile/treatments/general-history-form" handler={TreatmentHistoryForm} />
 						<NotFound handler={NotFoundPage} />
 					</Locations>
 				</Template>

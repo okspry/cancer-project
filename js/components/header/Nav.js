@@ -13,13 +13,27 @@ var Nav = React.createClass({
               <Link href="/home">Home</Link>
             </li>
             <li>
-              <Link href="/treatments">Profile</Link>
-            </li>
-            <li>
-              <Link href="/relationships">Relationships</Link>
+              <Link href="/profile">Profile</Link>
             </li>
             <li>
               <Link href="../NotFoundPage.js">Communities</Link>
+            </li>
+            <li>
+              <Link href="../NotFoundPage.js">Side Effects</Link>
+            </li>
+            <li>
+              <Link href="../NotFoundPage.js">Symptom Management</Link>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Link href="../NotFoundPage.js"><span className="glyphicon glyphicon-calendar" aria-hidden="true"></span></Link>
+            </li>
+            <li>
+              <Link href="../NotFoundPage.js"><span className="glyphicon glyphicon-envelope" aria-hidden="true"></span></Link>
+            </li>
+            <li>
+              <Link href="../NotFoundPage.js"><span>Logout </span><span className="glyphicon glyphicon-log-out" aria-hidden="true"></span></Link>
             </li>
           </ul>
         </div>				
