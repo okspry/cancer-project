@@ -1,5 +1,5 @@
 var React = require('react');
-var ProfileTemplate = require('./ProfileTemplate');
+var ProfileGenInfo = require('./ProfileGenInfo');
 var TreatmentSummary = require('./treatments/TreatmentSummary');
 var Relationships = require('./relationships/Relationships');
 
@@ -8,7 +8,7 @@ var Profile = React.createClass({
 		return (
 
 			<div>
-			  <ProfileTemplate tabpanel={this.props.tabpanel} />
+			  <ProfileGenInfo />
 			</div>
 
 		 )
