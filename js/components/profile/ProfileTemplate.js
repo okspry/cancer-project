@@ -7,7 +7,7 @@ var ProfileTemplate = React.createClass({
 
     	<div>
     		<ProfileNav />
-    		<div>
+    		<div role="tabpanel" className="tab-pane">
     			{this.props.children}
     		</div>
     	</div>

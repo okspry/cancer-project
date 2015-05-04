@@ -6,8 +6,8 @@ var ProfileNav = React.createClass({
 		return (
 
       <div>
-        <ul id="profile-pills">
-          <li>
+        <ul className="nav nav-pills" id="profile-pills">
+          <li className="active">
             <Link global href="/profile/treatments">Treatment History</Link>
           </li>
           <li>
