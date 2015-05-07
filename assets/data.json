@@ -1,0 +1,79 @@
+[
+	{ "friends": 
+		[
+			{
+				"name": "Ken Spry",
+				"photo": "../../assets/ken_photo.jpg"
+			},
+			{
+				"name": "Jeremy Keiper",
+				"photo": "../../assets/jeremy_photo.jpg"
+			},
+			{
+				"name": "Indiana Jones",
+				"photo": "../../assets/the_man_photo.jpg"
+			}
+
+		]
+	}, 
+	{ "calendarData": 
+		[
+			{"9 Nov 2014" : {
+					"appointments" : {
+						"Colonoscopy": { 
+							"value": 6.7
+						}
+					}
+				}
+			},
+			{"1 Oct 2014": {
+					"appointments" : {
+						"CEA Test": { 
+							"value": 105
+						}
+					}
+				}
+			},
+			{"12 Aug 2014": {
+					"appointments" : {
+						"CEA Test": { 
+							"value": 105
+						}
+					}
+				}
+			},
+			{"5 Aug 2014": {
+					"appointments" : {
+						"CEA Test": { 
+							"value": 105
+						}
+					}
+				}
+			},
+			{"1 Aug 2014": {
+					"appointments" : {
+						"CEA Test": { 
+							"value": 105
+						}
+					}
+				}
+			},
+			{"9 Jul 2014": {
+					"appointments" : {
+						"Colonoscopy": { 
+							"value": 6.7
+						}
+					}
+				}
+			},
+			{"21 Jan 2014": {
+					"appointments" : {
+						"CT Scan Abdomen": { 
+							"value": 211
+						}
+					}
+				}
+			}
+		]
+	}
+]

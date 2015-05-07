@@ -1,5 +1,6 @@
 var React = require('react');
 var ItemRemover = require('./ItemRemover');
+var SelectBox = require('../../common/SelectBox');
 
 var Friend = React.createClass({ 
   render: function() {
@@ -16,12 +17,8 @@ var Friend = React.createClass({
             </div>
             <div className="media-body">
               <h4 className="media-heading">{this.props.friend["name"]}</h4>
-              <select>
-                <option>Friend</option>
-              </select>
-              <select>
-                <option>Share Journal</option>
-              </select>
+              <SelectBox data="friend" />
+              <SelectBox data="share all" />
             </div>
           </div>
         </div>

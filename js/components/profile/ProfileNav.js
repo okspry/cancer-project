@@ -13,6 +13,9 @@ var ProfileNav = React.createClass({
           <li>
             <Link global href="/profile/relationships">Allies</Link>
           </li>
+          <li>
+            <Link href="../NotFoundPage.js">Side Effects</Link>
+          </li>
         </ul>
       </div>
 

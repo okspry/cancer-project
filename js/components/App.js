@@ -5,6 +5,7 @@ var Profile = require('./profile/Profile');
 var Relationships = require('./profile/relationships/Relationships');
 var TreatmentSummary = require('./profile/treatments/TreatmentSummary');
 var TreatmentHistoryForm = require('./profile/treatments/general-history-form/TreatmentHistoryForm');
+var Calendar = require('./calendar/Calendar');
 var NotFoundPage = require('./NotFoundPage');
 
 var Router = require('react-router-component');
@@ -14,16 +15,15 @@ var Location = Router.Location;
 var NotFound = Router.NotFound;
 
 var FriendStore = require('../stores/FriendStore');
+var CalendarStore = require('../stores/CalendarStore');
 
-function getFriends() {
-	return {
-		allFriends: FriendStore.getAll()
-	}
-}
 
 var App = React.createClass({
 	getInitialState: function() {
-		return getFriends()
+		return {
+			friends: FriendStore.getAll(),
+			calendarItems: CalendarStore.getAll()
+		}
 	},
   render: function() {
   	return (
@@ -34,8 +34,9 @@ var App = React.createClass({
 						<Location path="/home" handler={Home} />
 						<Location path="/profile" handler={Profile} />
 						<Location path="/profile/treatments" handler={TreatmentSummary} />
-						<Location path="/profile/relationships" handler={Relationships} friends={this.state.allFriends} />
+						<Location path="/profile/relationships" handler={Relationships} friends={this.state.friends} />
 						<Location path="/profile/treatments/general-history-form" handler={TreatmentHistoryForm} />
+						<Location path="/calendar" handler={Calendar} calendarItems={this.state.calendarItems} />
 						<NotFound handler={NotFoundPage} />
 					</Locations>
 				</Template>

@@ -9,7 +9,6 @@ var TreatmentsGenInfo = React.createClass({
 		return (
 
       <div>
-  			<h3>Treatment History</h3>
         <div className="clearfix">
           <h4>General History</h4>
           <div className="pull-right">

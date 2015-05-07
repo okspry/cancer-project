@@ -10,9 +10,10 @@ var Relationships = React.createClass({
 	    <div>
 	    	<ProfileGenInfo />
 	    	<div className="clearfix">
+	    		<h4 className="pull-left allies-number">3 Allies</h4>
 		    	<div className="button-div pull-right">
 	          <button type="button" className="btn btn-default add-item">Invite a Friend to Join TROOP</button>
-	          <button type="button" className="btn btn-default">Find Allies</button>
+	          <button type="button" className="btn btn-default pad-left">Find Allies</button>
 	        </div>
 	      </div>
 

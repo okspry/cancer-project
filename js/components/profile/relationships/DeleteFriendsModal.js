@@ -6,8 +6,8 @@ var DeleteFriendsModal = React.createClass({
   },
   render: function() {
     return (
-
-      <div className="modal fade" id="confirm-friend-delete" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      // look for some style overrides in styles.css
+      <div className="modal fade" id="confirm-friend-delete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">

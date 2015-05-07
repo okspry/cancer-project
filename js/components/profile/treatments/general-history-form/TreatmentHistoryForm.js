@@ -72,8 +72,8 @@ var TreatmentHistoryForm = React.createClass({
 				</div>
 
 				<div className="form-group">
-				  <button type="submit" className="btn btn-primary">Save Changes</button>
-				  <button type="button" className="btn">Cancel Changes</button>
+					<button type="submit" className="btn btn-primary">Save Changes</button>
+					<button type="button" className="btn pad-left">Cancel Changes</button>
 				  <button type="button" className="btn btn-danger pull-right">Delete Record</button>
 				</div>
 
