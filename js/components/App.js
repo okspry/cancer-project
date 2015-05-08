@@ -17,6 +17,9 @@ var NotFound = Router.NotFound;
 var FriendStore = require('../stores/FriendStore');
 var CalendarStore = require('../stores/CalendarStore');
 
+function getFriends() {
+
+}
 
 var App = React.createClass({
 	getInitialState: function() {
@@ -24,6 +27,10 @@ var App = React.createClass({
 			friends: FriendStore.getAll(),
 			calendarItems: CalendarStore.getAll()
 		}
+	},
+	updateFriends: function(newFriends) {
+		this.setState({
+		})
 	},
   render: function() {
   	return (

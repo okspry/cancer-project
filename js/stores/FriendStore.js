@@ -1,4 +1,4 @@
-var FriendDispatcher = require('../dispatcher/FriendDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var FriendConstants = require('../constants/FriendConstants');
 var assign = require('object-assign');
@@ -55,7 +55,7 @@ var FriendStore = assign({}, EventEmitter.prototype, {
 });
 
 // Register callback to handle all updates
-FriendDispatcher.register(function(action) {
+AppDispatcher.register(function(action) {
   var text;
 
   switch(action.actionType) {

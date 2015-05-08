@@ -5,7 +5,7 @@ var ItemRemover = React.createClass({
 	render: function() {
 		return (
 
-			<button type="button" index={this.props.index} onClick={this.handleClick} className="close" aria-label="remove" data-toggle="modal" data-target="#confirm-friend-delete">
+			<button type="button" index={this.props.index} onClick={this.deleteFriend} className="close" aria-label="remove" >
 				<span aria-hidden="true">&times;</span>
 			</button>
 

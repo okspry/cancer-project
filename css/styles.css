@@ -110,11 +110,3 @@ li.media.friendlist-item {
 .allies-number {
 	margin-top: 30px;
 }
-
-/* Calendar */
-#calendar {
-	position: absolute;
-	top: 130px;
-	width: 100%;
-	height: 500px;
-}

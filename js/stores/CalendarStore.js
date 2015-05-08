@@ -1,4 +1,4 @@
-var CalendarDispatcher = require('../dispatcher/CalendarDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var CalendarConstants = require('../constants/CalendarConstants');
 var assign = require('object-assign');
@@ -27,7 +27,7 @@ var _items = [
 			{ "date": "9 Jun 2015" },
 			{ "date": "5 Mar 2015" },
 			{ "date": "9 Nov 2014" },
-			{ "date": "9 Jul 2014" }
+			{ "date": "9 Jun 2014" }
 		]
 	}
 ];
@@ -56,7 +56,7 @@ var CalendarStore = assign({}, EventEmitter.prototype, {
 });
 
 // Register callback to handle all updates
-CalendarDispatcher.register(function(action) {
+AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
 
