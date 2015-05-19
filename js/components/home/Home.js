@@ -8,8 +8,7 @@ var Home = React.createClass({
 		return (
 
 			<div className="clearfix">
-				<Aside />
-				<div className="pull-left col-sm-8">
+				<div>
 					<StatusUpdater />
 					<ul className="media-list">
 						<FeedItem />

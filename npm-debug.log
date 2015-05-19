@@ -1,0 +1,502 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'react-router' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 warn package.json cancer-portal@0.0.3 No README data
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'react-router', null ]
+7 verbose cache add name=undefined spec="react-router" args=["react-router",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'react-router',
+8 verbose parsed url   path: 'react-router',
+8 verbose parsed url   href: 'react-router' }
+9 silly lockFile 8307adf9-react-router react-router
+10 verbose lock react-router /Users/kennethspry/.npm/8307adf9-react-router.lock
+11 silly lockFile 8307adf9-react-router react-router
+12 silly lockFile 8307adf9-react-router react-router
+13 verbose addNamed [ 'react-router', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 683905ff-react-router react-router@
+16 verbose lock react-router@ /Users/kennethspry/.npm/683905ff-react-router.lock
+17 silly addNameRange { name: 'react-router', range: '*', hasData: false }
+18 verbose request where is /react-router
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id c8af087eb1e3c1a8
+21 verbose url raw /react-router
+22 verbose url resolving [ 'https://registry.npmjs.org/', './react-router' ]
+23 verbose url resolved https://registry.npmjs.org/react-router
+24 verbose request where is https://registry.npmjs.org/react-router
+25 info trying registry request attempt 1 at 09:22:27
+26 verbose etag "4JRUPQIM121TADJ5T7IUR19OF"
+27 http GET https://registry.npmjs.org/react-router
+28 http 304 https://registry.npmjs.org/react-router
+29 silly registry.get cb [ 304,
+29 silly registry.get   { date: 'Tue, 19 May 2015 13:22:24 GMT',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     'cache-control': 'max-age=60',
+29 silly registry.get     etag: '"4JRUPQIM121TADJ5T7IUR19OF"',
+29 silly registry.get     age: '0',
+29 silly registry.get     connection: 'keep-alive',
+29 silly registry.get     'x-served-by': 'cache-dfw1825-DFW',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1432041744.426880,VS0,VE45',
+29 silly registry.get     vary: 'Accept' } ]
+30 verbose etag https://registry.npmjs.org/react-router from cache
+31 silly addNameRange number 2 { name: 'react-router', range: '*', hasData: true }
+32 silly addNameRange versions [ 'react-router',
+32 silly addNameRange   [ '0.0.0',
+32 silly addNameRange     '0.0.1',
+32 silly addNameRange     '0.4.0',
+32 silly addNameRange     '0.4.1',
+32 silly addNameRange     '0.4.2',
+32 silly addNameRange     '0.5.0',
+32 silly addNameRange     '0.5.1',
+32 silly addNameRange     '0.5.2',
+32 silly addNameRange     '0.5.3',
+32 silly addNameRange     '0.6.0',
+32 silly addNameRange     '0.6.1',
+32 silly addNameRange     '0.7.0',
+32 silly addNameRange     '0.8.0',
+32 silly addNameRange     '0.9.0',
+32 silly addNameRange     '0.9.1',
+32 silly addNameRange     '0.9.2',
+32 silly addNameRange     '0.9.3',
+32 silly addNameRange     '0.9.4',
+32 silly addNameRange     '0.9.5',
+32 silly addNameRange     '0.10.0',
+32 silly addNameRange     '0.10.1',
+32 silly addNameRange     '0.10.2',
+32 silly addNameRange     '0.11.0',
+32 silly addNameRange     '0.11.1',
+32 silly addNameRange     '0.11.2',
+32 silly addNameRange     '0.11.3',
+32 silly addNameRange     '0.11.4',
+32 silly addNameRange     '0.11.5',
+32 silly addNameRange     '0.11.6',
+32 silly addNameRange     '0.12.0',
+32 silly addNameRange     '0.12.1',
+32 silly addNameRange     '0.12.2',
+32 silly addNameRange     '0.12.3',
+32 silly addNameRange     '0.12.4',
+32 silly addNameRange     '0.13.0',
+32 silly addNameRange     '0.13.1',
+32 silly addNameRange     '0.13.2',
+32 silly addNameRange     '0.13.3' ] ]
+33 verbose addNamed [ 'react-router', '0.13.3' ]
+34 verbose addNamed [ '0.13.3', '0.13.3' ]
+35 silly lockFile 99c70d1b-react-router-0-13-3 react-router@0.13.3
+36 verbose lock react-router@0.13.3 /Users/kennethspry/.npm/99c70d1b-react-router-0-13-3.lock
+37 silly lockFile 99c70d1b-react-router-0-13-3 react-router@0.13.3
+38 silly lockFile 99c70d1b-react-router-0-13-3 react-router@0.13.3
+39 silly lockFile 683905ff-react-router react-router@
+40 silly lockFile 683905ff-react-router react-router@
+41 silly resolved [ { name: 'react-router',
+41 silly resolved     version: '0.13.3',
+41 silly resolved     description: 'A complete routing library for React.js',
+41 silly resolved     main: 'lib',
+41 silly resolved     repository:
+41 silly resolved      { type: 'git',
+41 silly resolved        url: 'https://github.com/rackt/react-router.git' },
+41 silly resolved     homepage: 'https://github.com/rackt/react-router/blob/latest/README.md',
+41 silly resolved     bugs: { url: 'https://github.com/rackt/react-router/issues' },
+41 silly resolved     authors: [ 'Ryan Florence', 'Michael Jackson' ],
+41 silly resolved     license: 'MIT',
+41 silly resolved     peerDependencies: { react: '0.13.x' },
+41 silly resolved     dependencies: { 'object-assign': '^2.0.0', qs: '2.4.1' },
+41 silly resolved     tags: [ 'react', 'router' ],
+41 silly resolved     keywords:
+41 silly resolved      [ 'react',
+41 silly resolved        'react-component',
+41 silly resolved        'routing',
+41 silly resolved        'route',
+41 silly resolved        'routes',
+41 silly resolved        'router' ],
+41 silly resolved     _id: 'react-router@0.13.3',
+41 silly resolved     scripts: {},
+41 silly resolved     _shasum: '95455dd19d2c04c7b2957ff7fccda76031ac29b1',
+41 silly resolved     _from: 'react-router@',
+41 silly resolved     _resolved: 'https://registry.npmjs.org/react-router/-/react-router-0.13.3.tgz',
+41 silly resolved     _npmVersion: '2.5.1',
+41 silly resolved     _nodeVersion: '0.12.0',
+41 silly resolved     _npmUser: { name: 'ryanflorence', email: 'rpflorence@gmail.com' },
+41 silly resolved     maintainers: [ [Object], [Object] ],
+41 silly resolved     dist:
+41 silly resolved      { shasum: '95455dd19d2c04c7b2957ff7fccda76031ac29b1',
+41 silly resolved        tarball: 'http://registry.npmjs.org/react-router/-/react-router-0.13.3.tgz' },
+41 silly resolved     directories: {},
+41 silly resolved     readme: 'ERROR: No README data found!' } ]
+42 info install react-router@0.13.3 into /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project
+43 info installOne react-router@0.13.3
+44 verbose node_modules/react-router unbuild
+45 verbose tar unpack /Users/kennethspry/.npm/react-router/0.13.3/package.tgz
+46 silly lockFile ba8e47b8-roject-node-modules-react-router tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+47 verbose lock tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router /Users/kennethspry/.npm/ba8e47b8-roject-node-modules-react-router.lock
+48 silly lockFile cb5b1082--react-router-0-13-3-package-tgz tar:///Users/kennethspry/.npm/react-router/0.13.3/package.tgz
+49 verbose lock tar:///Users/kennethspry/.npm/react-router/0.13.3/package.tgz /Users/kennethspry/.npm/cb5b1082--react-router-0-13-3-package-tgz.lock
+50 silly gunzTarPerm modes [ '755', '644' ]
+51 silly gunzTarPerm extractEntry package.json
+52 silly gunzTarPerm extractEntry README.md
+53 silly gunzTarPerm extractEntry lib/Cancellation.js
+54 silly gunzTarPerm extractEntry lib/Redirect.js
+55 silly gunzTarPerm extractEntry lib/Route.js
+56 silly gunzTarPerm extractEntry lib/ScrollHistory.js
+57 silly gunzTarPerm extractEntry lib/PropTypes.js
+58 silly gunzTarPerm extractEntry lib/TestUtils.js
+59 silly gunzTarPerm extractEntry lib/History.js
+60 silly gunzTarPerm extractEntry lib/runRouter.js
+61 silly gunzTarPerm extractEntry lib/isReactChildren.js
+62 silly gunzTarPerm extractEntry lib/index.js
+63 silly gunzTarPerm extractEntry lib/PathUtils.js
+64 silly gunzTarPerm extractEntry lib/createRouter.js
+65 silly gunzTarPerm extractEntry lib/Navigation.js
+66 silly gunzTarPerm extractEntry lib/createRoutesFromReactChildren.js
+67 silly gunzTarPerm extractEntry lib/Match.js
+68 silly gunzTarPerm extractEntry lib/getWindowScrollPosition.js
+69 silly gunzTarPerm extractEntry lib/State.js
+70 silly gunzTarPerm extractEntry lib/supportsHistory.js
+71 silly gunzTarPerm extractEntry lib/Transition.js
+72 silly gunzTarPerm extractEntry lib/components/ActiveHandler.js
+73 silly gunzTarPerm extractEntry lib/components/ContextWrapper.js
+74 silly gunzTarPerm extractEntry lib/components/DefaultRoute.js
+75 silly gunzTarPerm extractEntry lib/components/Link.js
+76 silly gunzTarPerm extractEntry lib/components/NotFoundRoute.js
+77 silly gunzTarPerm extractEntry lib/components/Redirect.js
+78 silly gunzTarPerm extractEntry lib/components/Route.js
+79 silly gunzTarPerm extractEntry lib/components/RouteHandler.js
+80 silly gunzTarPerm extractEntry lib/behaviors/ImitateBrowserBehavior.js
+81 silly gunzTarPerm extractEntry lib/behaviors/ScrollToTopBehavior.js
+82 silly gunzTarPerm extractEntry lib/locations/HashLocation.js
+83 silly gunzTarPerm extractEntry lib/locations/HistoryLocation.js
+84 silly gunzTarPerm extractEntry lib/locations/RefreshLocation.js
+85 silly gunzTarPerm extractEntry lib/locations/StaticLocation.js
+86 silly gunzTarPerm extractEntry lib/locations/TestLocation.js
+87 silly gunzTarPerm extractEntry lib/actions/LocationActions.js
+88 silly gunzTarPerm extractEntry umd/ReactRouter.js
+89 silly gunzTarPerm extractEntry umd/ReactRouter.min.js
+90 silly lockFile ba8e47b8-roject-node-modules-react-router tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+91 silly lockFile ba8e47b8-roject-node-modules-react-router tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+92 silly lockFile cb5b1082--react-router-0-13-3-package-tgz tar:///Users/kennethspry/.npm/react-router/0.13.3/package.tgz
+93 silly lockFile cb5b1082--react-router-0-13-3-package-tgz tar:///Users/kennethspry/.npm/react-router/0.13.3/package.tgz
+94 info preinstall react-router@0.13.3
+95 verbose readDependencies using package.json deps
+96 verbose readDependencies using package.json deps
+97 verbose cache add [ 'object-assign@^2.0.0', null ]
+98 verbose cache add name=undefined spec="object-assign@^2.0.0" args=["object-assign@^2.0.0",null]
+99 verbose parsed url { protocol: null,
+99 verbose parsed url   slashes: null,
+99 verbose parsed url   auth: null,
+99 verbose parsed url   host: null,
+99 verbose parsed url   port: null,
+99 verbose parsed url   hostname: null,
+99 verbose parsed url   hash: null,
+99 verbose parsed url   search: null,
+99 verbose parsed url   query: null,
+99 verbose parsed url   pathname: 'object-assign@^2.0.0',
+99 verbose parsed url   path: 'object-assign@^2.0.0',
+99 verbose parsed url   href: 'object-assign@^2.0.0' }
+100 verbose cache add [ 'qs@2.4.1', null ]
+101 verbose cache add name=undefined spec="qs@2.4.1" args=["qs@2.4.1",null]
+102 verbose parsed url { protocol: null,
+102 verbose parsed url   slashes: null,
+102 verbose parsed url   auth: null,
+102 verbose parsed url   host: null,
+102 verbose parsed url   port: null,
+102 verbose parsed url   hostname: null,
+102 verbose parsed url   hash: null,
+102 verbose parsed url   search: null,
+102 verbose parsed url   query: null,
+102 verbose parsed url   pathname: 'qs@2.4.1',
+102 verbose parsed url   path: 'qs@2.4.1',
+102 verbose parsed url   href: 'qs@2.4.1' }
+103 verbose cache add name="object-assign" spec="^2.0.0" args=["object-assign","^2.0.0"]
+104 verbose parsed url { protocol: null,
+104 verbose parsed url   slashes: null,
+104 verbose parsed url   auth: null,
+104 verbose parsed url   host: null,
+104 verbose parsed url   port: null,
+104 verbose parsed url   hostname: null,
+104 verbose parsed url   hash: null,
+104 verbose parsed url   search: null,
+104 verbose parsed url   query: null,
+104 verbose parsed url   pathname: '^2.0.0',
+104 verbose parsed url   path: '^2.0.0',
+104 verbose parsed url   href: '^2.0.0' }
+105 verbose addNamed [ 'object-assign', '^2.0.0' ]
+106 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+107 silly lockFile 5a30528b-object-assign-2-0-0 object-assign@^2.0.0
+108 verbose lock object-assign@^2.0.0 /Users/kennethspry/.npm/5a30528b-object-assign-2-0-0.lock
+109 verbose cache add name="qs" spec="2.4.1" args=["qs","2.4.1"]
+110 verbose parsed url { protocol: null,
+110 verbose parsed url   slashes: null,
+110 verbose parsed url   auth: null,
+110 verbose parsed url   host: null,
+110 verbose parsed url   port: null,
+110 verbose parsed url   hostname: null,
+110 verbose parsed url   hash: null,
+110 verbose parsed url   search: null,
+110 verbose parsed url   query: null,
+110 verbose parsed url   pathname: '2.4.1',
+110 verbose parsed url   path: '2.4.1',
+110 verbose parsed url   href: '2.4.1' }
+111 verbose addNamed [ 'qs', '2.4.1' ]
+112 verbose addNamed [ '2.4.1', '2.4.1' ]
+113 silly lockFile 7522a7fe-qs-2-4-1 qs@2.4.1
+114 verbose lock qs@2.4.1 /Users/kennethspry/.npm/7522a7fe-qs-2-4-1.lock
+115 silly addNameRange { name: 'object-assign',
+115 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+115 silly addNameRange   hasData: false }
+116 verbose request where is /object-assign
+117 verbose request registry https://registry.npmjs.org/
+118 verbose url raw /object-assign
+119 verbose url resolving [ 'https://registry.npmjs.org/', './object-assign' ]
+120 verbose url resolved https://registry.npmjs.org/object-assign
+121 verbose request where is https://registry.npmjs.org/object-assign
+122 info trying registry request attempt 1 at 09:22:28
+123 verbose etag "1WKYIZVJKREFK4HYXVMP3C9MW"
+124 http GET https://registry.npmjs.org/object-assign
+125 verbose request where is /qs
+126 verbose request registry https://registry.npmjs.org/
+127 verbose url raw /qs
+128 verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
+129 verbose url resolved https://registry.npmjs.org/qs
+130 verbose request where is https://registry.npmjs.org/qs
+131 info trying registry request attempt 1 at 09:22:28
+132 verbose etag "6RZ4NBCBL9GAMUKY2GC4UZ0K5"
+133 http GET https://registry.npmjs.org/qs
+134 http 304 https://registry.npmjs.org/object-assign
+135 silly registry.get cb [ 304,
+135 silly registry.get   { date: 'Tue, 19 May 2015 13:22:24 GMT',
+135 silly registry.get     via: '1.1 varnish',
+135 silly registry.get     'cache-control': 'max-age=60',
+135 silly registry.get     etag: '"1WKYIZVJKREFK4HYXVMP3C9MW"',
+135 silly registry.get     age: '35',
+135 silly registry.get     connection: 'keep-alive',
+135 silly registry.get     'x-served-by': 'cache-dfw1830-DFW',
+135 silly registry.get     'x-cache': 'HIT',
+135 silly registry.get     'x-cache-hits': '2',
+135 silly registry.get     'x-timer': 'S1432041744.717337,VS0,VE0',
+135 silly registry.get     vary: 'Accept' } ]
+136 verbose etag https://registry.npmjs.org/object-assign from cache
+137 silly addNameRange number 2 { name: 'object-assign',
+137 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+137 silly addNameRange   hasData: true }
+138 silly addNameRange versions [ 'object-assign',
+138 silly addNameRange   [ '0.1.0',
+138 silly addNameRange     '0.1.1',
+138 silly addNameRange     '0.1.2',
+138 silly addNameRange     '0.2.0',
+138 silly addNameRange     '0.2.1',
+138 silly addNameRange     '0.2.2',
+138 silly addNameRange     '0.3.0',
+138 silly addNameRange     '0.3.1',
+138 silly addNameRange     '0.4.0',
+138 silly addNameRange     '1.0.0',
+138 silly addNameRange     '2.0.0' ] ]
+139 verbose addNamed [ 'object-assign', '2.0.0' ]
+140 verbose addNamed [ '2.0.0', '2.0.0' ]
+141 silly lockFile 806ee24e-object-assign-2-0-0 object-assign@2.0.0
+142 verbose lock object-assign@2.0.0 /Users/kennethspry/.npm/806ee24e-object-assign-2-0-0.lock
+143 silly lockFile 806ee24e-object-assign-2-0-0 object-assign@2.0.0
+144 silly lockFile 806ee24e-object-assign-2-0-0 object-assign@2.0.0
+145 silly lockFile 5a30528b-object-assign-2-0-0 object-assign@^2.0.0
+146 silly lockFile 5a30528b-object-assign-2-0-0 object-assign@^2.0.0
+147 http 304 https://registry.npmjs.org/qs
+148 silly registry.get cb [ 304,
+148 silly registry.get   { date: 'Tue, 19 May 2015 13:22:24 GMT',
+148 silly registry.get     via: '1.1 varnish',
+148 silly registry.get     'cache-control': 'max-age=60',
+148 silly registry.get     etag: '"6RZ4NBCBL9GAMUKY2GC4UZ0K5"',
+148 silly registry.get     age: '13',
+148 silly registry.get     connection: 'keep-alive',
+148 silly registry.get     'x-served-by': 'cache-dfw1834-DFW',
+148 silly registry.get     'x-cache': 'HIT',
+148 silly registry.get     'x-cache-hits': '1',
+148 silly registry.get     'x-timer': 'S1432041744.728292,VS0,VE0',
+148 silly registry.get     vary: 'Accept' } ]
+149 verbose etag https://registry.npmjs.org/qs from cache
+150 silly lockFile 7522a7fe-qs-2-4-1 qs@2.4.1
+151 silly lockFile 7522a7fe-qs-2-4-1 qs@2.4.1
+152 silly resolved [ { name: 'object-assign',
+152 silly resolved     version: '2.0.0',
+152 silly resolved     description: 'ES6 Object.assign() ponyfill',
+152 silly resolved     license: 'MIT',
+152 silly resolved     repository:
+152 silly resolved      { type: 'git',
+152 silly resolved        url: 'https://github.com/sindresorhus/object-assign' },
+152 silly resolved     author:
+152 silly resolved      { name: 'Sindre Sorhus',
+152 silly resolved        email: 'sindresorhus@gmail.com',
+152 silly resolved        url: 'http://sindresorhus.com' },
+152 silly resolved     engines: { node: '>=0.10.0' },
+152 silly resolved     scripts: { test: 'mocha' },
+152 silly resolved     files: [ 'index.js' ],
+152 silly resolved     keywords:
+152 silly resolved      [ 'object',
+152 silly resolved        'assign',
+152 silly resolved        'extend',
+152 silly resolved        'properties',
+152 silly resolved        'es6',
+152 silly resolved        'ecmascript',
+152 silly resolved        'harmony',
+152 silly resolved        'ponyfill',
+152 silly resolved        'prollyfill',
+152 silly resolved        'polyfill',
+152 silly resolved        'shim',
+152 silly resolved        'browser' ],
+152 silly resolved     devDependencies: { mocha: '*' },
+152 silly resolved     gitHead: '4cd0365f5a78dd369473ca0bbd31f7b234148c42',
+152 silly resolved     bugs: { url: 'https://github.com/sindresorhus/object-assign/issues' },
+152 silly resolved     homepage: 'https://github.com/sindresorhus/object-assign',
+152 silly resolved     _id: 'object-assign@2.0.0',
+152 silly resolved     _shasum: 'f8309b09083b01261ece3ef7373f2b57b8dd7042',
+152 silly resolved     _from: 'object-assign@^2.0.0',
+152 silly resolved     _npmVersion: '2.1.5',
+152 silly resolved     _nodeVersion: '0.10.32',
+152 silly resolved     _npmUser: { name: 'sindresorhus', email: 'sindresorhus@gmail.com' },
+152 silly resolved     maintainers: [ [Object] ],
+152 silly resolved     dist:
+152 silly resolved      { shasum: 'f8309b09083b01261ece3ef7373f2b57b8dd7042',
+152 silly resolved        tarball: 'http://registry.npmjs.org/object-assign/-/object-assign-2.0.0.tgz' },
+152 silly resolved     directories: {},
+152 silly resolved     _resolved: 'https://registry.npmjs.org/object-assign/-/object-assign-2.0.0.tgz',
+152 silly resolved     readme: 'ERROR: No README data found!' },
+152 silly resolved   { name: 'qs',
+152 silly resolved     version: '2.4.1',
+152 silly resolved     description: 'A querystring parser that supports nesting and arrays, with a depth limit',
+152 silly resolved     homepage: 'https://github.com/hapijs/qs',
+152 silly resolved     main: 'index.js',
+152 silly resolved     dependencies: {},
+152 silly resolved     devDependencies: { code: '1.x.x', lab: '5.x.x' },
+152 silly resolved     scripts: { test: 'make test-cov' },
+152 silly resolved     repository: { type: 'git', url: 'https://github.com/hapijs/qs.git' },
+152 silly resolved     keywords: [ 'querystring', 'qs' ],
+152 silly resolved     licenses: [ [Object] ],
+152 silly resolved     gitHead: '58c6540418954867822c1af3e45fb4c26708b07e',
+152 silly resolved     bugs: { url: 'https://github.com/hapijs/qs/issues' },
+152 silly resolved     _id: 'qs@2.4.1',
+152 silly resolved     _shasum: '68cbaea971013426a80c1404fad6b1a6b1175245',
+152 silly resolved     _from: 'qs@2.4.1',
+152 silly resolved     _npmVersion: '2.6.1',
+152 silly resolved     _nodeVersion: '0.10.36',
+152 silly resolved     _npmUser: { name: 'nlf', email: 'quitlahok@gmail.com' },
+152 silly resolved     maintainers: [ [Object], [Object] ],
+152 silly resolved     dist:
+152 silly resolved      { shasum: '68cbaea971013426a80c1404fad6b1a6b1175245',
+152 silly resolved        tarball: 'http://registry.npmjs.org/qs/-/qs-2.4.1.tgz' },
+152 silly resolved     directories: {},
+152 silly resolved     _resolved: 'https://registry.npmjs.org/qs/-/qs-2.4.1.tgz',
+152 silly resolved     readme: 'ERROR: No README data found!' } ]
+153 info install object-assign@2.0.0 into /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+154 info install qs@2.4.1 into /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+155 info installOne object-assign@2.0.0
+156 info installOne qs@2.4.1
+157 verbose node_modules/react-router/node_modules/object-assign unbuild
+158 verbose node_modules/react-router/node_modules/qs unbuild
+159 verbose tar unpack /Users/kennethspry/.npm/object-assign/2.0.0/package.tgz
+160 silly lockFile e3e82286-outer-node-modules-object-assign tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/object-assign
+161 verbose lock tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/object-assign /Users/kennethspry/.npm/e3e82286-outer-node-modules-object-assign.lock
+162 silly lockFile e65d121f--object-assign-2-0-0-package-tgz tar:///Users/kennethspry/.npm/object-assign/2.0.0/package.tgz
+163 verbose lock tar:///Users/kennethspry/.npm/object-assign/2.0.0/package.tgz /Users/kennethspry/.npm/e65d121f--object-assign-2-0-0-package-tgz.lock
+164 verbose tar unpack /Users/kennethspry/.npm/qs/2.4.1/package.tgz
+165 silly lockFile ee4bb8e7-les-react-router-node-modules-qs tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/qs
+166 verbose lock tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/qs /Users/kennethspry/.npm/ee4bb8e7-les-react-router-node-modules-qs.lock
+167 silly lockFile b933ad34-ethspry-npm-qs-2-4-1-package-tgz tar:///Users/kennethspry/.npm/qs/2.4.1/package.tgz
+168 verbose lock tar:///Users/kennethspry/.npm/qs/2.4.1/package.tgz /Users/kennethspry/.npm/b933ad34-ethspry-npm-qs-2-4-1-package-tgz.lock
+169 silly gunzTarPerm modes [ '755', '644' ]
+170 silly gunzTarPerm modes [ '755', '644' ]
+171 silly gunzTarPerm extractEntry package.json
+172 silly gunzTarPerm extractEntry package.json
+173 silly gunzTarPerm extractEntry index.js
+174 silly gunzTarPerm extractEntry readme.md
+175 silly gunzTarPerm extractEntry .npmignore
+176 silly gunzTarPerm extractEntry README.md
+177 silly gunzTarPerm extractEntry LICENSE
+178 silly gunzTarPerm extractEntry index.js
+179 silly gunzTarPerm extractEntry CHANGELOG.md
+180 silly gunzTarPerm extractEntry CONTRIBUTING.md
+181 silly gunzTarPerm extractEntry Makefile
+182 silly gunzTarPerm extractEntry .jshintignore
+183 silly gunzTarPerm extractEntry .jshintrc
+184 silly gunzTarPerm extractEntry lib/index.js
+185 silly gunzTarPerm extractEntry lib/parse.js
+186 silly gunzTarPerm extractEntry lib/stringify.js
+187 silly gunzTarPerm extractEntry lib/utils.js
+188 silly gunzTarPerm extractEntry .travis.yml
+189 silly gunzTarPerm extractEntry test/parse.js
+190 silly gunzTarPerm extractEntry test/stringify.js
+191 silly lockFile e3e82286-outer-node-modules-object-assign tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/object-assign
+192 silly lockFile e3e82286-outer-node-modules-object-assign tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/object-assign
+193 silly lockFile e65d121f--object-assign-2-0-0-package-tgz tar:///Users/kennethspry/.npm/object-assign/2.0.0/package.tgz
+194 silly lockFile e65d121f--object-assign-2-0-0-package-tgz tar:///Users/kennethspry/.npm/object-assign/2.0.0/package.tgz
+195 info preinstall object-assign@2.0.0
+196 verbose readDependencies using package.json deps
+197 verbose readDependencies using package.json deps
+198 silly resolved []
+199 verbose about to build /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/object-assign
+200 info build /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/object-assign
+201 verbose linkStuff [ false,
+201 verbose linkStuff   false,
+201 verbose linkStuff   false,
+201 verbose linkStuff   '/Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules' ]
+202 info linkStuff object-assign@2.0.0
+203 verbose linkBins object-assign@2.0.0
+204 verbose linkMans object-assign@2.0.0
+205 verbose rebuildBundles object-assign@2.0.0
+206 info install object-assign@2.0.0
+207 info postinstall object-assign@2.0.0
+208 silly lockFile ee4bb8e7-les-react-router-node-modules-qs tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/qs
+209 silly lockFile ee4bb8e7-les-react-router-node-modules-qs tar:///Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/qs
+210 silly lockFile b933ad34-ethspry-npm-qs-2-4-1-package-tgz tar:///Users/kennethspry/.npm/qs/2.4.1/package.tgz
+211 silly lockFile b933ad34-ethspry-npm-qs-2-4-1-package-tgz tar:///Users/kennethspry/.npm/qs/2.4.1/package.tgz
+212 info preinstall qs@2.4.1
+213 verbose readDependencies using package.json deps
+214 verbose readDependencies using package.json deps
+215 silly resolved []
+216 verbose about to build /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/qs
+217 info build /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules/qs
+218 verbose linkStuff [ false,
+218 verbose linkStuff   false,
+218 verbose linkStuff   false,
+218 verbose linkStuff   '/Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router/node_modules' ]
+219 info linkStuff qs@2.4.1
+220 verbose linkBins qs@2.4.1
+221 verbose linkMans qs@2.4.1
+222 verbose rebuildBundles qs@2.4.1
+223 info install qs@2.4.1
+224 info postinstall qs@2.4.1
+225 verbose about to build /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+226 info build /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules/react-router
+227 verbose linkStuff [ false,
+227 verbose linkStuff   false,
+227 verbose linkStuff   false,
+227 verbose linkStuff   '/Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project/node_modules' ]
+228 info linkStuff react-router@0.13.3
+229 verbose linkBins react-router@0.13.3
+230 verbose linkMans react-router@0.13.3
+231 verbose rebuildBundles react-router@0.13.3
+232 verbose rebuildBundles [ 'object-assign', 'qs' ]
+233 info install react-router@0.13.3
+234 info postinstall react-router@0.13.3
+235 verbose readDependencies using package.json deps
+236 verbose already installed skipping react@0.13.x /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project
+237 silly resolved []
+238 error peerinvalid The package react does not satisfy its siblings' peerDependencies requirements!
+238 error peerinvalid Peer react-async@2.1.0 wants react@>=0.12.0 <0.14.0
+238 error peerinvalid Peer react-router@0.13.3 wants react@0.13.x
+238 error peerinvalid Peer react-router-component@0.24.4 wants react@>=0.12.0 <0.14.0
+239 error System Darwin 14.3.0
+240 error command "node" "/usr/local/bin/npm" "install" "react-router"
+241 error cwd /Users/kennethspry/Desktop/RI/cancer-toolkit/examples/cancer-project
+242 error node -v v0.10.33
+243 error npm -v 1.4.28
+244 error code EPEERINVALID
+245 verbose exit [ 1, true ]

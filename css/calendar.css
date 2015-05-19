@@ -31,16 +31,24 @@ text.item-key {
   opacity: .8;
 }
 
-.circle, .cross {
-  fill: #000;
+.cross {
+  stroke: #000;
+  fill: transparent;
   opacity: 0.35;
 }
-.circle.selected, .cross.selected {
+.cross.alert {
+  stroke: #f17;
   opacity: 1;
 }
-.circle.alert, .cross.alert {
-  fill: #f17;
+.cross.completed {
+  stroke: #000;
+  fill: #000;
   opacity: 1;
+}
+
+.circle {
+  fill: #000;
+  opacity: 0.35;
 }
 
 .lab-line {

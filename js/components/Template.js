@@ -7,7 +7,7 @@ var Template = React.createClass({
 
     	<div>
     		<Nav />
-    		<div id="content">
+    		<div id="content" className="col-sm-8 col-sm-offset-2">
     			{this.props.children}
     		</div>
     	</div>

@@ -17,10 +17,6 @@ var NotFound = Router.NotFound;
 var FriendStore = require('../stores/FriendStore');
 var CalendarStore = require('../stores/CalendarStore');
 
-function getFriends() {
-
-}
-
 var App = React.createClass({
 	getInitialState: function() {
 		return {

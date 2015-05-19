@@ -1,24 +1,15 @@
 var React = require('react');
 
 var CalendarWidget = React.createClass({
-	render: function() {
-		return (
-
-			<div>
-				{this.drawChart(this.props.calendarItems)}
-			</div>
-
-		)
-	},
 	drawChart: function(data) {
-
 		/***************** Start by doing the typical SVG setup ***************/
-		var margin = {top: 120, right: 200, bottom: 50, left: 200},
-		    margin2 = {top: 120, right: 200, bottom: 20, left: 200},
-		    width = 900 - margin.left - margin.right,
-		    height = 350 - margin.top - margin.bottom,
+		var svg = d3.select("div#chart").append("svg"),
+				margin = {top: 80, right: 50, bottom: 50, left: 150},
+		    margin2 = {top: 50, right: 50, bottom: 20, left: 150},
+				width = document.getElementById("chart").offsetWidth - margin.left - margin.right,
+		    height = _.size(data) * margin.top - margin.top - margin.bottom,
 		    height2 = 30,
-		    itemHeight = 40,
+		    itemHeight = 15,
 		    itemPadding = 15;
 
 		var x = d3.time.scale().range([0, width]),
@@ -32,8 +23,7 @@ var CalendarWidget = React.createClass({
 			.x(x2)
 			.on("brush", brushed);
 
-		var svg = d3.select("div").append("svg")
-		    .attr({
+		svg.attr({
 				"width": width + margin.left + margin.right,
 				"height": height + margin.top + margin.bottom + height2 + margin2.top + margin2.bottom
 			});
@@ -42,9 +32,9 @@ var CalendarWidget = React.createClass({
 		    .attr("id", "clip-focus")
 		  .append("rect")
 		    .attr({
-		    	"width": width + 10,
+		    	"width": width + 15,
 		    	"height": height,
-		    	"x": -5
+		    	"x": -7
 		    });
 
 		var focus = svg.append("g")
@@ -52,16 +42,6 @@ var CalendarWidget = React.createClass({
 		    	"class": "focus",
 		    	"transform": "translate(" + margin.left + "," + margin.top + ")"
 		    });
-
-		var lineFollow = focus.append("rect")
-			.attr({
-				"class": "handle",
-				"x": width,
-				"y": 0,
-				"width": "3px",
-				"height": height,
-				"clip-path": "url(#clip-focus)"
-			});
 
 		var context = svg.append("g")
 		    .attr("class", "context")
@@ -82,14 +62,17 @@ var CalendarWidget = React.createClass({
 				name: _.keys(d)[0],
 				dates: _.map(_.values(d)[0], function(item, index) { 
 					return new Date(item["date"]); 
+				}),
+				completedDates: _.map(_.values(d)[0], function(item, index) { 
+					return new Date(item["completedDate"]); 
 				})
 			}
 		});
 		// these will be used for showing the current date and setting the range for the context brush
 		var today = new Date();
+		var sixMosAgo = addMonths(new Date(), -6); 
 		var threeMosAgo = addMonths(new Date(), -3); 
 		var threeMosFromNow = addMonths(new Date(), +3);
-
 		function addMonths(date, months) {
 		  date.setMonth(date.getMonth() + months);
 		  return date;
@@ -115,7 +98,7 @@ var CalendarWidget = React.createClass({
 			.attr("transform", "translate(0," + height + ")")
 			.call(xAxis);
 		
-		brush.extent([threeMosAgo, threeMosFromNow]);
+		brush.extent([sixMosAgo, threeMosFromNow]);
 		brush(d3.select(".brush").transition());
 		brushed();
 
@@ -133,10 +116,11 @@ var CalendarWidget = React.createClass({
 				"fill": "#f17",
 				"fill-opacity": 0.5
 			});
+			
 		// Context and Brush 
 		drawContext(dateRange);
 		// item group
-		drawitems(data);
+		drawItems(data);
 
 		function drawContext(data) {
 			// small axis
@@ -163,7 +147,7 @@ var CalendarWidget = React.createClass({
 				.attr("height", height2);
 		}
 
-		function drawitems(data) {
+		function drawItems(data) {
 
 			_.map(data, function(itemData, i) {
 
@@ -182,7 +166,7 @@ var CalendarWidget = React.createClass({
 					.attr({
 						"class": "item-title",
 						"x": -20,
-						"y": 20
+						"y": 14
 					})
 					.text(_.values(itemData)[0]);
 				
@@ -190,6 +174,7 @@ var CalendarWidget = React.createClass({
 				// to clip the item group from extending beyond the edges of the timeline
 				var itemGroup = items.append("g")
 					.attr({
+						"key": i,
 						"clip-path": "url(#clip-focus)"
 					});
 
@@ -198,9 +183,7 @@ var CalendarWidget = React.createClass({
 					.attr({
 						"class": "total-range",
 						"width": width,
-						"height": itemHeight,
-						"x": 0,
-						"y": 0
+						"height": itemHeight
 					});
 
 
@@ -217,7 +200,16 @@ var CalendarWidget = React.createClass({
 				
 				itemAndValue.append("path")
 					.attr({
-						"class": "cross",
+						"class": function(d) {
+							console.log(d)
+							if(d > threeMosAgo && d < threeMosFromNow && d["completedDate"] == null) {
+								return "cross alert"
+							} else if(d["completedDate"] != null) {
+								return "cross completed"
+							} else {
+								return "cross"
+							}
+						},
 						"d": cross
 					});
 				
@@ -232,8 +224,8 @@ var CalendarWidget = React.createClass({
 					.attr({
 						"class": "item-text-background",
 						"width": 100,
-						"height": 40,
-						"y": -20,
+						"height": itemHeight + itemPadding,
+						"y": -itemHeight,
 						"x": function(d) {
 							if(x(d) >= width - 120) {
 								return -102
@@ -244,12 +236,15 @@ var CalendarWidget = React.createClass({
 					});
 				
 				itemText.append("text")
-					.attr("x", function(d) {
-						if(x(d) >= width - 120) {
-							return -10
-						} else {
-							return 10
-						}
+					.attr({
+						"x": function(d) {
+							if(x(d) >= width - 120) {
+								return -10
+							} else {
+								return 10
+							}
+						},
+						"y": 8
 					})
 					.style({
 						"text-anchor": function(d) {
@@ -278,44 +273,29 @@ var CalendarWidget = React.createClass({
 			focus.selectAll(".x.axis").call(xAxis);
 		}
 
-		document.addEventListener("mouseover", function(e) {
-			lineFollow.style("display", null);
+		d3.selectAll(".item-and-value").each(function() {
+			var itemNode = d3.select(this);
+
+			function mousemove() {
+		    d3.mouse(itemNode.node());
+		  }
+
+			d3.select("div#chart").on("mousemove", mousemove);
 		});
+	},
+	componentDidMount: function() {
+		this.drawChart(this.props.calendarItems);
+	},
+	render: function() {
+		return (
 
-		document.addEventListener("mouseout", function(e) {
-			// Hide the line
-			lineFollow.style("display", "none");
-		});
+			<div id="chart">	
+			</div>
 
-		document.addEventListener("mousemove", function(e) {
-			// Draw a line
-			lineFollow.attr("x", e.clientX - margin.left);
-
-			d3.selectAll(".item-and-value").each(function(d) {
-				var nodeTransform = this.getTransformToElement(this.nearestViewportElement)["e"] - margin.left;
-
-				if(+nodeTransform >= (+lineFollow.attr("x") - 10) && +nodeTransform <= (+lineFollow.attr("x") + 10)) {
-					d3.select(this).select(".item-text").transition()
-						.duration(300)
-						.ease("cubic")
-						.attr("transform", "scale(1)");
-				} else {
-					d3.select(this).select(".item-text").transition()
-						.delay(1000)
-						.duration(200)
-						.ease("cubic")
-						.attr("transform", "scale(0)");
-				}
-			});
-		});
+		)
 	}
 });
 
 
+
 module.exports = CalendarWidget;
-
-
-
-
-
-

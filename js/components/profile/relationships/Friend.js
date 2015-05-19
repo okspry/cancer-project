@@ -9,7 +9,7 @@ var Friend = React.createClass({
       <li className="media friendlist-item">
         <div className="panel panel-default">
           <div className="panel-body">
-            <ItemRemover index={this.props.friend["i"]} />
+            <ItemRemover />
             <div className="media-left">
               <a href="#">
                 <img className="media-object" src={this.props.friend["photo"]} alt="Ken Spry's Picture" width="60" height="60" />
@@ -18,7 +18,7 @@ var Friend = React.createClass({
             <div className="media-body">
               <h4 className="media-heading">{this.props.friend["name"]}</h4>
               <SelectBox data="friend" />
-              <SelectBox data="share all" />
+              <SelectBox data="share" />
             </div>
           </div>
         </div>

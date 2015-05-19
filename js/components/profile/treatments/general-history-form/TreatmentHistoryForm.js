@@ -35,13 +35,13 @@ var TreatmentHistoryForm = React.createClass({
 				      <br />
 				      <div className="btn-group" data-toggle="buttons" required>
 				        <label className="btn btn-primary active">
-				          <input type="radio" name="options" id="option1" autocomplete="off" checked />I'm not sure
+				          <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked />I'm not sure
 				        </label>
 				        <label className="btn btn-primary">
-				          <input type="radio" name="options" id="option2" autocomplete="off" /> No
+				          <input type="radio" name="options" id="option2" autoComplete="off" /> No
 				        </label>
 				        <label className="btn btn-primary">
-				          <input type="radio" name="options" id="option3" autocomplete="off" /> Yes
+				          <input type="radio" name="options" id="option3" autoComplete="off" /> Yes
 				        </label>
 				      </div>
 				    </div>
