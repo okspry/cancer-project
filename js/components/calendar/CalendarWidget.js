@@ -1,6 +1,21 @@
 var React = require('react');
 
+var CalendarStore = require('../../stores/CalendarStore');
+
+function calendarItems() {
+	return { calendarItems: CalendarStore.getCalendarItems() }
+}
+
 var CalendarWidget = React.createClass({
+	getInitialState: function() {
+		return calendarItems();
+	},
+	componentWillMount: function() {
+		CalendarStore.addChangeListener(this._onChange);
+	},
+	_onChange: function() {
+		this.setState(calendarItems());
+	},
 	drawChart: function(data) {
 		/***************** Start by doing the typical SVG setup ***************/
 		var svg = d3.select("div#chart").append("svg"),
@@ -201,7 +216,6 @@ var CalendarWidget = React.createClass({
 				itemAndValue.append("path")
 					.attr({
 						"class": function(d) {
-							console.log(d)
 							if(d > threeMosAgo && d < threeMosFromNow && d["completedDate"] == null) {
 								return "cross alert"
 							} else if(d["completedDate"] != null) {
@@ -284,18 +298,16 @@ var CalendarWidget = React.createClass({
 		});
 	},
 	componentDidMount: function() {
-		this.drawChart(this.props.calendarItems);
+		this.drawChart(this.state.calendarItems);
 	},
 	render: function() {
 		return (
 
-			<div id="chart">	
+			<div id="chart" ref="chart">	
 			</div>
 
 		)
 	}
 });
-
-
 
 module.exports = CalendarWidget;

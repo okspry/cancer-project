@@ -4,7 +4,16 @@ var Chemotherapies = require('./chemotherapies/Chemotherapies');
 
 var Link = require('react-router-component').Link;
 
+var TreatmentHistoryStore = require('../../../../stores/TreatmentHistoryStore');
+
+function treatmentHistoryItems() {
+  return { treatmentHistoryItems: TreatmentHistoryStore.getTreatmentHistory() }
+}
+
 var TreatmentsGenInfo = React.createClass({
+  getInitialState: function() {
+    return treatmentHistoryItems();
+  },
 	render: function() {
 		return (
 
@@ -18,22 +27,31 @@ var TreatmentsGenInfo = React.createClass({
           </div>
           <div>
             <div>
-              <label>Colon Cancer&ensp;Stage 2</label><span><small>&emsp;14-Feb-2012</small></span>
+              <label>
+                {_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "cancerType")}
+                &ensp;
+                {_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "cancerStage")}
+              </label>
+              <span><small>&emsp;{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "cancerDiagnosisDate")}</small></span>
             </div>
             <div>
-              <label>Genetic or Predisposing Abnormality&emsp;</label><span>None</span>
+              <label>Genetic or Predisposing Abnormality&emsp;</label>
+              <span>{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "geneticOrPredisposingAbnormality")}</span>
             </div>
             <div>
               <label htmlFor="pcp">Primary Care Provider&emsp;</label>
-              <span>Dr. Haggstrom<small>&emsp;(317)555-5544</small><small>&emsp;haggstrom@indiana.edu</small></span>
+              <span>{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "pcpName")}
+                <small>&emsp;{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "pcpPhone")}</small>
+                <small>&emsp;{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "pcpEmail")}</small>
+              </span>
             </div>
           </div>
         </div>
 
         <hr />
-        <Surgeries />
+        <Surgeries surgeries={_.get(this.state.treatmentHistoryItems, "surgeries")} />
         <hr />
-        <Chemotherapies />
+        <Chemotherapies chemotherapies={_.get(this.state.treatmentHistoryItems, "chemotherapies")} />
       </div>
 
 		)

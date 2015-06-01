@@ -1,14 +1,15 @@
 var React = require('react');
+var MarkComplete = require('./MarkComplete');
 
 var Appointment = React.createClass({
 	render: function() {
 		return (
 
-      <tr>
-        <td>{this.props.calendarItem["type"]}</td>
-        <td className="clearfix">
-          <span className="pull-left">{this.props.calendarItem["date"]}&emsp;</span>
-          <button className="btn btn-primary btn-sm pull-right">Mark Completed</button>
+      <tr dueCalendarItem={this.props.dueCalendarItem} className={this.props.classAttr}>
+        <td width="50%">{this.props.dueCalendarItem["type"]}</td>
+        <td width="50%" className="clearfix">
+          <span className="pull-left">{this.props.dueCalendarItem["date"]}&emsp;</span>
+          <MarkComplete dueCalendarItem={this.props.dueCalendarItem} />
         </td> 
       </tr>
 

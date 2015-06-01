@@ -8,13 +8,19 @@ var Chemotherapy = React.createClass({
 
 			<div className="clearfix">
         <div className="pull-left">
-          <h5>Oxaliplation (eloxatin)<small>&emsp;01-Jun-2012 &ndash; 03-Dec-2012</small></h5>
+          <h5>{_.get(_.get(this.props.chemo, "chemoInfo"), "chemoType")}
+            <small>&emsp;{_.get(_.get(this.props.chemo, "chemoInfo"), "startDate")} &ndash; {_.get(_.get(this.props.chemo, "chemoInfo"), "endDate")}</small>
+          </h5>
           <div className="">
-            <span>Indiana University</span>
-            <span>Indianapolis, IN</span>
+            <span>{_.get(_.get(this.props.chemo, "chemoInfo"), "chemoLocation")}</span>
+            &emsp;
+            <span>{_.get(_.get(this.props.chemo, "chemoInfo"), "chemoCity")}</span>
           </div>
           <div>
-            <span>Dr. Hand<small>&emsp;(317)555-5555</small><small>&emsp;handtomouth@indiana.edu</small></span>
+            <span>{_.get(_.get(this.props.chemo, "chemoInfo"), "doctorName")}
+              <small>&emsp;{_.get(_.get(this.props.chemo, "chemoInfo"), "doctorPhone")}</small>
+              <small>&emsp;{_.get(_.get(this.props.chemo, "chemoInfo"), "doctorEmail")}</small>
+            </span>
           </div>
         </div>
         <div className="pull-right">

@@ -1,80 +1,102 @@
 var React = require('react');
+var CancerTypeSelector = require('./CancerTypeSelector');
+var CancerStageSelector = require('./CancerStageSelector');
+var CancerDiagnosisDateSelector = require('./CancerDiagnosisDateSelector');
+var GeneticAbnormality = require('./GeneticAbnormality');
+var FormGroup = require('../../../common/FormGroup');
+var Link = require('react-router-component').Link;
+
+var TreatmentHistoryStore = require('../../../../stores/TreatmentHistoryStore');
+var TreatmentHistoryActions = require('../../../../actions/TreatmentHistoryActions');
+
+function getData() {
+  return { 
+  	formOptions: TreatmentHistoryStore.getFormOptions(),
+  	treatmentHistoryItems: TreatmentHistoryStore.getTreatmentHistory()
+  }
+}
 
 var TreatmentHistoryForm = React.createClass({
+	getInitialState: function() {
+    return getData();
+  },
+  componentWillMount: function() {
+  	TreatmentHistoryStore.addChangeListener(this._onChange);
+  },
+  _onChange: function() {
+  	this.setState(getData());
+  },
+  componentWillUnmount: function() {
+  	TreatmentHistoryStore.removeChangeListener(this._onChange);
+  },
 	render: function() {
+		var generalInfoItemsState = _.get(this.state.treatmentHistoryItems, "generalInfo");
+		var formOptionsState = this.state.formOptions;
+		var disabledValue = generalInfoItemsState["geneticOrPredisposingAbnormality"] == "yes" ? "" : "disabled";
+
 		return (
 
 			<div className="col-md-8">
 				<h2>Document Treatment</h2>
 				<form data-toggle="validator" role="form">
 
-				<div className="form-group">
-				  <label htmlFor="cancer-type">Type of Cancer (required)</label>
-				  <select className="form-control" id="cancer-type" required>
-				    <option value="Colon Cancer">Colon Cancer</option>
-				  </select>
-				</div>
+				<CancerTypeSelector 
+					currentVal={_.get(generalInfoItemsState, "cancerType")} 
+					cancerTypes={_.get(formOptionsState, "cancerTypes")} />
 
-				<div className="form-group">
-				  <label htmlFor="cancer-stage">Stage of Cancer (required)</label>
-				  <select className="form-control" id="cancer-stage" required>
-				    <option>Cancer Stage 2</option>
-				  </select>
-				  <span className="help-block with-errors">Please, do the thing</span>
-				</div>
+				<CancerStageSelector 
+					currentVal={_.get(generalInfoItemsState, "cancerStage")} 
+					cancerStages={_.get(formOptionsState, "cancerStages")} />
 
-				<div className="form-group">
-				  <label htmlFor="date-of-diagnosis">Date of Diagnosis</label>
-				  <input type="date" className="form-control" id="date-of-diagnosis" />
-				</div>
+				<FormGroup 
+				  	infoType={_.findKey(generalInfoItemsState, "cancerDiagnosisDate")}
+				  	label="Diagnosis Date"
+				  	type="date"
+				  	value={generalInfoItemsState["cancerDiagnosisDate"]}
+				  	actionType={TreatmentHistoryActions.changeDiagnosisDate} />
 
-				<div className="panel panel-default">
-				  <div className="panel-body">
-				    <div className="form-group">
-				      <label htmlFor="predisposition">Do you have a genetic or predisposing abnormality? (required)</label>
-				      <br />
-				      <div className="btn-group" data-toggle="buttons" required>
-				        <label className="btn btn-primary active">
-				          <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked />I'm not sure
-				        </label>
-				        <label className="btn btn-primary">
-				          <input type="radio" name="options" id="option2" autoComplete="off" /> No
-				        </label>
-				        <label className="btn btn-primary">
-				          <input type="radio" name="options" id="option3" autoComplete="off" /> Yes
-				        </label>
-				      </div>
-				    </div>
-				    <div className="form-group">
-				      <label htmlFor="specific-predisposition">If yes, what?</label>
-				      <select className="form-control" id="specific-predisposition" required disabled>
-				        <option></option>
-				        <option>Inflammatory Bowel Disease</option>
-				      </select>
-				    </div>
-				  </div>
-				</div>
+				<GeneticAbnormality
+					yesNoOptions={_.get(formOptionsState, "geneticOrPredisposingAbnormality")}
+					typeValue={_.get(generalInfoItemsState, "geneticOrPredisposingAbnormalityType")}
+					geneticAbnormalityTypes={_.get(formOptionsState, "geneticOrPredisposingAbnormalityTypes")}
+					disabledValue={disabledValue} />
 
 				<div className="well">
 				  <label>Primary Care Doctor's Information</label>
-				  <div className="form-group">
-				    <label htmlFor="pcp-name">Name</label>
-				    <input type="text" className="form-control" id="pcp-name" placeholder="First Last" />
-				  </div>
-				  <div className="form-group">
-				    <label htmlFor="pcp-number">Phone Number</label>
-				    <input type="phone" className="form-control" id="pcp-number" placeholder="(555)555-55555" />
-				  </div>
-				  <div className="form-group">
-				    <label htmlFor="pcp-email">Email</label>
-				    <input type="email" className="form-control" id="pcp-email" placeholder="jackrobin21@health.org" />
-				  </div>
+				  <FormGroup 
+				  	infoType={_.findKey(generalInfoItemsState, "pcpName")}
+				  	label="Name"
+				  	placeholder="First Last"
+				  	type="text"
+				  	value={generalInfoItemsState["pcpName"]}
+				  	actionType={TreatmentHistoryActions.changePCPName} />
+				  <FormGroup 
+				  	infoType={_.findKey(generalInfoItemsState, "pcpPhone")}
+				  	label="Phone"
+				  	placeholder="(555)555-5555"
+				  	type="tel"
+				  	value={generalInfoItemsState["pcpPhone"]}
+				  	actionType={TreatmentHistoryActions.changePCPPhone} />
+				  <FormGroup 
+				  	infoType={_.findKey(generalInfoItemsState, "pcpEmail")}
+				  	label="Email"
+				  	placeholder="yourname@email.com"
+				  	type="email"
+				  	value={generalInfoItemsState["pcpEmail"]}
+				  	actionType={TreatmentHistoryActions.changePCPEmail} />
 				</div>
 
 				<div className="form-group">
-					<button type="submit" className="btn btn-primary">Save Changes</button>
-					<button type="button" className="btn pad-left">Cancel Changes</button>
-				  <button type="button" className="btn btn-danger pull-right">Delete Record</button>
+					<Link 
+              global href="/profile/treatments/general-history-form"
+              className="btn-primary"></Link>
+					<BButton 
+						className="btn-primary"
+						actionType={TreatmentHistoryActions.submitForm}
+						href="/profile/treatments">Save Changes</BButton>
+					<BButton 
+						className="pad-left"
+						actionType={TreatmentHistoryActions.submitForm}>Cancel Changes</BButton>
 				</div>
 
 				</form>

@@ -1,7 +1,7 @@
 var React = require('react');
 var StatusUpdater = require('./StatusUpdater');
+var FeedItems = require('./FeedItems');
 var FeedItem = require('./FeedItem');
-var Aside = require('./Aside');
 
 var Home = React.createClass({
 	render: function() {
@@ -10,9 +10,7 @@ var Home = React.createClass({
 			<div className="clearfix">
 				<div>
 					<StatusUpdater />
-					<ul className="media-list">
-						<FeedItem />
-					</ul>
+					<FeedItems />
 				</div>
 			</div>
 

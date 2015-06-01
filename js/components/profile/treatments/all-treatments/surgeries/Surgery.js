@@ -8,13 +8,17 @@ var Surgery = React.createClass({
 
 			<div className="clearfix">
         <div className="pull-left">
-          <h5>Colostomy or Ileostomy Lymph node removal/dissection<small>&emsp;14-Feb-2012</small></h5>
+          <h5>{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeryType")}<small>&emsp;{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeryDate")}</small></h5>
           <div className="">
-            <span>Indiana University</span>
-            <span>Indianapolis, IN</span>
+            <span>{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeryLocation")}</span>
+            &emsp;
+            <span>{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeryCity")}</span>
           </div>
           <div>
-            <span>Dr. Hand<small>&emsp;(317)555-5555</small><small>&emsp;handtomouth@indiana.edu</small></span>
+            <span>{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeonName")}
+              <small>&emsp;{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeonPhone")}</small>
+              <small>&emsp;{_.get(_.get(this.props.surgery, "surgeryInfo"), "surgeonEmail")}</small>
+            </span>
           </div>
         </div>
         <div className="pull-right">

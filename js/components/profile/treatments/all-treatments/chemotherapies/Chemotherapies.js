@@ -16,7 +16,11 @@ var Chemotherapies = React.createClass({
           </h4>
         </div>
         <div>
-          <Chemotherapy />
+          {
+            _.map(this.props.chemotherapies, function(chemo, i) {
+              return <Chemotherapy key={i} chemo={chemo} />
+            })
+          }
         </div>
       </div>
 

@@ -17,7 +17,11 @@ var Surgeries = React.createClass({
           </h4>
         </div>
         <div>
-          <Surgery />
+          {
+            _.map(this.props.surgeries, function(surgery, i) {
+              return <Surgery key={i} surgery={surgery} />
+            })
+          }
         </div>
       </div>
 

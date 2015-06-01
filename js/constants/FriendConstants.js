@@ -1,5 +1,3 @@
-var keyMirror = require('keymirror');
-
-module.exports = keyMirror({
-  DELETE_FRIEND: null
-});
+module.exports = {
+  DELETE_FRIEND: 'DELETE_FRIEND'
+};

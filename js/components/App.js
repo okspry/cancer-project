@@ -14,20 +14,7 @@ var Location = Router.Location;
 
 var NotFound = Router.NotFound;
 
-var FriendStore = require('../stores/FriendStore');
-var CalendarStore = require('../stores/CalendarStore');
-
 var App = React.createClass({
-	getInitialState: function() {
-		return {
-			friends: FriendStore.getAll(),
-			calendarItems: CalendarStore.getAll()
-		}
-	},
-	updateFriends: function(newFriends) {
-		this.setState({
-		})
-	},
   render: function() {
   	return (
 
@@ -37,9 +24,9 @@ var App = React.createClass({
 						<Location path="/home" handler={Home} />
 						<Location path="/profile" handler={Profile} />
 						<Location path="/profile/treatments" handler={TreatmentSummary} />
-						<Location path="/profile/relationships" handler={Relationships} friends={this.state.friends} />
+						<Location path="/profile/relationships" handler={Relationships} />
 						<Location path="/profile/treatments/general-history-form" handler={TreatmentHistoryForm} />
-						<Location path="/calendar" handler={Calendar} calendarItems={this.state.calendarItems} />
+						<Location path="/calendar" handler={Calendar} />
 						<NotFound handler={NotFoundPage} />
 					</Locations>
 				</Template>

@@ -1,5 +1,4 @@
-var keyMirror = require('keymirror');
-
-module.exports = keyMirror({
-  HIGHLIGHT_DUE: null
-});
+module.exports = {
+  CONFIRM_DONE: 'CONFIRM_DONE',
+  REMOVE_ITEM: 'REMOVE_ITEM'
+};

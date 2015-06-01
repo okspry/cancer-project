@@ -4,7 +4,7 @@ var FriendConstants = require('../constants/FriendConstants');
 var FriendActions = {
   deleteFriend: function(evt) {
 
-    FriendDispatcher.dispatch({
+    AppDispatcher.dispatch({
       actionType: FriendConstants.DELETE_FRIEND,
       friend: evt
     });
