@@ -1,14 +1,14 @@
 var React = require("react");
 var TreatmentHistoryActions = require("../../actions/TreatmentHistoryActions");
-var TextInput = require('./TextInput');
+var Input = require('./Input');
 
 var FormGroup = React.createClass({
 	render: function() {
 		return (
 
 			<div className="form-group">
-		    <label htmlFor={this.props.infoType}>{this.props.label}</label>
-		    <TextInput
+		    <label>{this.props.label}</label>
+		    <Input
 		    	{...this.props} />
 		  </div>
 

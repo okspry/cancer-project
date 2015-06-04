@@ -12,14 +12,14 @@ var Surgeries = React.createClass({
   			<div className="clearfix">
           <h4>Surgeries&emsp;
             <Link 
-              href="/procedure-form"
+              href="/treatments/all-treatments/surgeries/procedure-form"
               className="btn btn-primary btn-sm">Add</Link>
           </h4>
         </div>
         <div>
           {
             _.map(this.props.surgeries, function(surgery, i) {
-              return <Surgery key={i} surgery={surgery} />
+              return <Surgery key={i} surgery={surgery} index={i} />
             })
           }
         </div>

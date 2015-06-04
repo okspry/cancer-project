@@ -4,8 +4,8 @@ var FeedActions = require("../../actions/FeedActions");
 var PostButton = React.createClass({
 	handleClick: function() {
 		if(this.props.newItem["content"] != "") { 
-			FeedActions.postStatus(this.props.newItem);
-			FeedActions.newStatusTemplate();
+			this.props.actionPost(this.props.newItem);
+			this.props.actionNewTemplate();
 		};
 	},
 	render: function() {

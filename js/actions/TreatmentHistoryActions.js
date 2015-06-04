@@ -2,11 +2,16 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TreatmentHistoryConstants = require('../constants/TreatmentHistoryConstants');
 
 var TreatmentHistoryActions = {
-	changeSelector: function(item, value) {
+	changeCancerType: function(newValue) {
     AppDispatcher.handleAction({
-      actionType: TreatmentHistoryConstants.CHANGE_SELECTOR,
-      value: value,
-      item: item
+      actionType: TreatmentHistoryConstants.CHANGE_CANCER_TYPE,
+      newValue: newValue
+    });
+  },
+  changeCancerStage: function(newValue) {
+    AppDispatcher.handleAction({
+      actionType: TreatmentHistoryConstants.CHANGE_CANCER_STAGE,
+      newValue: newValue
     });
   },
   changeValue: function(newValue) {
@@ -48,7 +53,15 @@ var TreatmentHistoryActions = {
     AppDispatcher.handleAction({
       actionType: TreatmentHistoryConstants.CANCEL_FORM,
     });
-  }
+  },
+
+
+  changeSurgeryType: function(newValue) {
+    AppDispatcher.handleAction({
+      actionType: TreatmentHistoryConstants.CHANGE_SURGERY_TYPE,
+      newValue: newValue
+    });
+  },
 };
 
 module.exports = TreatmentHistoryActions;

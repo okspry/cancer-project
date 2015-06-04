@@ -10,10 +10,10 @@ var Nav = React.createClass({
 					<a className="navbar-brand" href="#">TROOP</a>
           <ul className="nav navbar-nav">
             <li>
-              <Link href="/home">Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/profile">Profile</Link>
+              <Link href="/profile/treatments">Profile</Link>
             </li>
             <li>
               <Link href="../NotFoundPage.js">Communities</Link>

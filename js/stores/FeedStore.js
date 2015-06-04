@@ -9,7 +9,8 @@ var newStatusTemplate = {
 	"userID": "Jeremy Leventhal",
 	"pictureURL": "../../assets/jer_bear_photo.jpg",
 	"content": "",
-	"shareWith": [],
+	"shareWith": ["My buddies", "My doctor"],
+	"sharedValue": "",
 	"timestamp": new Date().toString(),
 	"children": [],
 	"comment": {
@@ -27,6 +28,7 @@ var _items = [
 		"pictureURL": "../../assets/jer_bear_photo.jpg",
 		"content": "This is the first message",
 		"shareWith": [],
+		"sharedValue": "",
 		"timestamp": "Fri Jan 09 2015 00:00:00 GMT-0500 (EST)",
 		"children": [
 			{
@@ -56,11 +58,15 @@ function _changeStatus(message) {
 	templateItem["content"] = message;
 }
 
-function _postStatus(item) {
+function _changeShare(newValue) {
+	newStatusTemplate["sharedValue"] = newValue;
+}
+
+function _post(item) {
 	_items.push(item);
 }
 
-function _newStatusTemplate() {
+function _newTemplate() {
 	newStatusTemplate = newStatusTemplateGetter;
 }
 
@@ -108,12 +114,16 @@ var FeedStore = assign({}, EventEmitter.prototype, {
 	      _changeStatus(payload.action.message);
 	      break;
 
-	    case FeedConstants.POST_STATUS:
-	      _postStatus(payload.action.item);
+	    case FeedConstants.CHANGE_SHARE:
+	      _changeShare(payload.action.newValue);
 	      break;
 
-	    case FeedConstants.NEW_STATUS_TEMPLATE:
-	    	_newStatusTemplate();
+	    case FeedConstants.POST:
+	      _post(payload.action.item);
+	      break;
+
+	    case FeedConstants.NEW_TEMPLATE:
+	    	_newTemplate();
 	    	break;
 
 	    case FeedConstants.CHANGE_COMMENT:

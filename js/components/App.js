@@ -1,10 +1,7 @@
 var React = require('react');
 var Template = require('./Template');
 var Home = require('./home/Home');
-var Profile = require('./profile/Profile');
-var Relationships = require('./profile/relationships/Relationships');
-var TreatmentSummary = require('./profile/treatments/TreatmentSummary');
-var TreatmentHistoryForm = require('./profile/treatments/general-history-form/TreatmentHistoryForm');
+var ProfilePage = require('./profile/ProfilePage');
 var Calendar = require('./calendar/Calendar');
 var NotFoundPage = require('./NotFoundPage');
 
@@ -21,11 +18,8 @@ var App = React.createClass({
   		<div>
 	      <Template>
 					<Locations>
-						<Location path="/home" handler={Home} />
-						<Location path="/profile" handler={Profile} />
-						<Location path="/profile/treatments" handler={TreatmentSummary} />
-						<Location path="/profile/relationships" handler={Relationships} />
-						<Location path="/profile/treatments/general-history-form" handler={TreatmentHistoryForm} />
+						<Location path="/" handler={Home} />
+						<Location path="/profile(/*)" handler={ProfilePage} />
 						<Location path="/calendar" handler={Calendar} />
 						<NotFound handler={NotFoundPage} />
 					</Locations>

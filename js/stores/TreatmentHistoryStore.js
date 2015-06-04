@@ -12,6 +12,57 @@ var _formOptions = {
 	"geneticOrPredisposingAbnormalityTypes": ["", "Chron's Disease", "Irritable Bowel Syndrome"]
 };
 
+var _surgeryFormTemplate = {
+	"surgeryInfo": {
+		"id": "surgery2",
+		"surgeryType": [],
+		"surgeryDate": "",
+		"surgeryCity": "",
+		"surgeryLocation": "",
+		"surgeonName": "",
+		"surgeonPhone": "",
+		"surgeonEmail": ""
+	}
+};
+
+var _surgeryFormOptions = {
+	"surgeryTypes": ["Colostomy or ileostoy", "Lymph node removal/dissection", "Right colectomy", "Other"]
+};
+
+var _chemoFormTemplate = {
+	"surgeryInfo": {
+		"id": "surgery2",
+		"surgeryType": [],
+		"surgeryDate": "",
+		"surgeryCity": "",
+		"surgeryLocation": "",
+		"surgeonName": "",
+		"surgeonPhone": "",
+		"surgeonEmail": ""
+	}
+};
+
+var _chemoFormOptions = {
+	"surgeryTypes": ["Colostomy or ileostoy", "Lymph node removal/dissection", "Right colectomy", "Other"]
+};
+
+var _radFormTemplate = {
+	"surgeryInfo": {
+		"id": "surgery2",
+		"surgeryType": [],
+		"surgeryDate": "",
+		"surgeryCity": "",
+		"surgeryLocation": "",
+		"surgeonName": "",
+		"surgeonPhone": "",
+		"surgeonEmail": ""
+	}
+};
+
+var _radFormOptions = {
+	"surgeryTypes": ["Colostomy or ileostoy", "Lymph node removal/dissection", "Right colectomy", "Other"]
+};
+
 var _items = {
 	"generalInfo": {
 		"cancerType": "Colon Cancer",
@@ -26,7 +77,20 @@ var _items = {
 	"surgeries": [
 		{
 			"surgeryInfo": {
-				"surgeryType": "Colostomy or Ileostomy Lymph node removal/dissection",
+				"id": "surgery1",
+				"surgeryType": ["Colostomy or Ileostomy Lymph node removal/dissection"],
+				"surgeryDate": "2012-02-14",
+				"surgeryCity": "Indianapolis, IN",
+				"surgeryLocation": "Indiana University",
+				"surgeonName": "Pam Hand, MD",
+				"surgeonPhone": "(317)555-2333",
+				"surgeonEmail": "handtomouth@iu.edu"
+			}
+		},
+		{
+			"surgeryInfo": {
+				"id": "surgery2",
+				"surgeryType": ["Colostomy or Ileostomy Lymph node removal/dissection"],
 				"surgeryDate": "2012-02-14",
 				"surgeryCity": "Indianapolis, IN",
 				"surgeryLocation": "Indiana University",
@@ -49,17 +113,35 @@ var _items = {
 				"doctorEmail": "pollywantacracker@iu.edu"
 			}
 		}
+	],
+	"radiationTreatments": [
+		{
+			"radInfo": {
+				"radType": "Oxaliplation (eloxatin)",
+				"startDate": "2012-06-01",
+				"endDate": "2012-12-18",
+				"chemoCity": "Indianapolis, IN",
+				"chemoLocation": "Indiana University",
+				"doctorName": "Kim Polly, MD",
+				"doctorPhone": "(317)555-9982",
+				"doctorEmail": "pollywantacracker@iu.edu"
+			}
+		}
 	]
 };
 
 /**************************************/
 
-function _changeSelector(item, value) {
-	item = value;
+function _changeCancerType(newValue) {
+	_items["generalInfo"]["cancerType"] = newValue;
+}
+
+function _changeCancerStage(newValue) {
+	_items["generalInfo"]["cancerStage"] = newValue;
 }
 
 function _changeValue(newValue) {
-	_items["generalInfo"]["geneticOrPredisposingAbnormality"] = newValue
+	_items["generalInfo"]["geneticOrPredisposingAbnormality"] = newValue;
 }
 
 function _changeDiagnosisDate(newValue) {
@@ -79,11 +161,17 @@ function _changePCPEmail(newValue) {
 }
 
 function _submitForm() {
-
+	return
 }
 
 function _cancelForm() {
-	
+	return
+}
+
+
+function _changeSurgeryType(newValue) {
+	console.log(_items["surgeries"][0]["surgeryInfo"])
+	_items["surgeries"][0]["surgeryInfo"] = newValue;
 }
 
 var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
@@ -94,6 +182,14 @@ var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
 
   getFormOptions: function() {
     return _formOptions;
+  },
+
+  getSurgeryTemplate: function() {
+    return _surgeryFormTemplate;
+  },
+
+  getSurgeryFormOptions: function() {
+    return _surgeryFormOptions;
   },
 
   emitChange: function() {
@@ -113,8 +209,12 @@ var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
 		var action = payload.action;
 	  switch(action.actionType) {
 
-	    case TreatmentHistoryConstants.CHANGE_SELECTOR:
-	      _changeSelector(payload.action.item, payload.action.value);
+	    case TreatmentHistoryConstants.CHANGE_CANCER_TYPE:
+	      _changeCancerType(payload.action.newValue);
+	      break;
+
+	    case TreatmentHistoryConstants.CHANGE_CANCER_STAGE:
+	      _changeCancerStage(payload.action.newValue);
 	      break;
 
 	    case TreatmentHistoryConstants.CHANGE_VALUE:
@@ -143,6 +243,12 @@ var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
 
 	    case TreatmentHistoryConstants.CANCEL_FORM:
 	      _cancelForm();
+	      break;
+
+
+
+	    case TreatmentHistoryConstants.CHANGE_SURGERY_TYPE:
+	      _changeSurgeryType(payload.action.index, payload.action.newValue);
 	      break;
 
 	  }

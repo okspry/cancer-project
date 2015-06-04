@@ -4,17 +4,13 @@ var Chemotherapies = require('./chemotherapies/Chemotherapies');
 
 var Link = require('react-router-component').Link;
 
-var TreatmentHistoryStore = require('../../../../stores/TreatmentHistoryStore');
-
-function treatmentHistoryItems() {
-  return { treatmentHistoryItems: TreatmentHistoryStore.getTreatmentHistory() }
-}
-
 var TreatmentsGenInfo = React.createClass({
-  getInitialState: function() {
-    return treatmentHistoryItems();
-  },
 	render: function() {
+    var generalInfo = this.props.generalInfo;
+    var formOptions = this.props.formOptions;
+    var surgeries = this.props.surgeries;
+    var chemotherapies = this.props.chemotherapies;
+    var radiationTreatments = this.props.radiationTreatments;
 		return (
 
       <div>
@@ -22,36 +18,36 @@ var TreatmentsGenInfo = React.createClass({
           <h4>General History</h4>
           <div className="pull-right">
             <Link 
-              global href="/profile/treatments/general-history-form"
+              href="/all-treatments/general-history-form"
               className="glyphicon glyphicon-pencil"></Link>
           </div>
           <div>
             <div>
               <label>
-                {_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "cancerType")}
+                {_.get(generalInfo, "cancerType")}
                 &ensp;
-                {_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "cancerStage")}
+                {_.get(generalInfo, "cancerStage")}
               </label>
-              <span><small>&emsp;{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "cancerDiagnosisDate")}</small></span>
+              <span><small>&emsp;{_.get(generalInfo, "cancerDiagnosisDate")}</small></span>
             </div>
             <div>
               <label>Genetic or Predisposing Abnormality&emsp;</label>
-              <span>{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "geneticOrPredisposingAbnormality")}</span>
+              <span>{_.get(generalInfo, "geneticOrPredisposingAbnormality")}</span>
             </div>
             <div>
-              <label htmlFor="pcp">Primary Care Provider&emsp;</label>
-              <span>{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "pcpName")}
-                <small>&emsp;{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "pcpPhone")}</small>
-                <small>&emsp;{_.get(_.get(this.state.treatmentHistoryItems, "generalInfo"), "pcpEmail")}</small>
+              <label>Primary Care Provider&emsp;</label>
+              <span>{_.get(generalInfo, "pcpName")}
+                <small>&emsp;{_.get(generalInfo, "pcpPhone")}</small>
+                <small>&emsp;{_.get(generalInfo, "pcpEmail")}</small>
               </span>
             </div>
           </div>
         </div>
 
         <hr />
-        <Surgeries surgeries={_.get(this.state.treatmentHistoryItems, "surgeries")} />
+        <Surgeries surgeries={surgeries} />
         <hr />
-        <Chemotherapies chemotherapies={_.get(this.state.treatmentHistoryItems, "chemotherapies")} />
+        <Chemotherapies chemotherapies={chemotherapies} />
       </div>
 
 		)

@@ -1,0 +1,58 @@
+[
+	{
+		"userID": "Jeremy Leventhal",
+		"pictureURL": "../../assets/jer_bear_photo.jpg",
+		"content": "This is the first message",
+		"shareWith": [],
+		"sharedValue": "",
+		"timestamp": "Fri Jan 09 2015 00:00:00 GMT-0500 (EST)",
+		"children": [
+			{
+				"userID": "Ken Spry",
+				"pictureURL": "../../assets/ken_photo.jpg",
+				"content": "Frist response",
+				"timestamp": "Fri Jan 09 2015 00:00:00 GMT-0500 (EST)"
+			},
+			{
+				"userID": "Ken Spry",
+				"pictureURL": "../../assets/ken_photo.jpg",
+				"content": "Second response",
+				"timestamp": "Fri Jan 09 2015 00:00:00 GMT-0500 (EST)"
+			}
+		],
+		"comment": {
+			"userID": "Jeremy Leventhal",
+			"pictureURL": "../../assets/jer_bear_photo.jpg",
+			"content": "",
+			"timestamp": "Jan"
+		}
+	},
+	{
+		"userID": "Jeremy Leventhal",
+		"pictureURL": "../../assets/jer_bear_photo.jpg",
+		"content": "This is the second message",
+		"shareWith": [],
+		"sharedValue": "",
+		"timestamp": "Fri Jan 010 2015 00:00:00 GMT-0500 (EST)",
+		"children": [
+			{
+				"userID": "Ken Spry",
+				"pictureURL": "../../assets/ken_photo.jpg",
+				"content": "second Frist response",
+				"timestamp": "Fri Jan 09 2015 00:00:00 GMT-0500 (EST)"
+			},
+			{
+				"userID": "Ken Spry",
+				"pictureURL": "../../assets/ken_photo.jpg",
+				"content": "Second response",
+				"timestamp": "Fri Jan 09 2015 00:00:00 GMT-0500 (EST)"
+			}
+		],
+		"comment": {
+			"userID": "Jeremy Leventhal",
+			"pictureURL": "../../assets/jer_bear_photo.jpg",
+			"content": "",
+			"timestamp": "Jan"
+		}
+	}
+]

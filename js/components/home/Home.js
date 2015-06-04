@@ -1,7 +1,6 @@
 var React = require('react');
 var StatusUpdater = require('./StatusUpdater');
 var FeedItems = require('./FeedItems');
-var FeedItem = require('./FeedItem');
 
 var Home = React.createClass({
 	render: function() {

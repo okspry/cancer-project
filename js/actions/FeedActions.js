@@ -8,15 +8,21 @@ var FeedActions = {
       message: message
     });
   },
-  postStatus: function(item) {
+  changeShare: function(newValue) {
     AppDispatcher.handleAction({
-      actionType: FeedConstants.POST_STATUS,
+      actionType: FeedConstants.CHANGE_SHARE,
+      newValue: newValue
+    });
+  },
+  post: function(item) {
+    AppDispatcher.handleAction({
+      actionType: FeedConstants.POST,
       item: item
     });
   },
-  newStatusTemplate: function() {
+  newTemplate: function() {
     AppDispatcher.handleAction({
-      actionType: FeedConstants.NEW_STATUS_TEMPLATE
+      actionType: FeedConstants.NEW_TEMPLATE
     });
   },
   changeComment: function(index, comment) {

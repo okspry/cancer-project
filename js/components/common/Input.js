@@ -1,6 +1,6 @@
 var React = require("react");
 
-var TextInput = React.createClass({
+var Input = React.createClass({
 	handleChange: function(e) {
 		this.props.actionType(e.target.value);
 	},
@@ -16,4 +16,4 @@ var TextInput = React.createClass({
 	}
 });
 
-module.exports = TextInput;
+module.exports = Input;

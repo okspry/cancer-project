@@ -1,7 +1,6 @@
 var React = require('react');
 var FriendsList = require('./FriendsList');
 var InviteFriendForm = require('./InviteFriendForm');
-var ProfileGenInfo = require('../ProfileGenInfo');
 
 var FriendStore = require('../../../stores/FriendStore');
 
@@ -23,7 +22,6 @@ var Relationships = React.createClass({
 		return (
 
 	    <div>
-	    	<ProfileGenInfo />
 	    	<div className="clearfix">
 	    		<h4 className="pull-left allies-number">{_.size(this.state.friends)} Allies</h4>
 		    	<div className="button-div pull-right">

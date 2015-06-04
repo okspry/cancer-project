@@ -4,6 +4,7 @@ var SelectBox = require('../common/SelectBox');
 var PostButton = require('../common/PostButton');
 
 var FeedStore = require('../../stores/FeedStore');
+var FeedActions = require('../../actions/FeedActions');
 
 function newStatus() {
   return { newStatus: FeedStore.getNewStatusTemplate() }
@@ -34,8 +35,8 @@ var StatusUpdater = React.createClass({
         		<div className="panel-footer clearfix">
               <div className="pull-right">
                 <span>Share with&ensp;</span>
-                <SelectBox data="friend" />
-          			<PostButton newItem={this.state.newStatus} />
+                <SelectBox actionType={FeedActions.changeShare} formOptions={this.state.newStatus["shareWith"]} />
+          			<PostButton actionPost={FeedActions.post} actionNewTemplate={FeedActions.newTemplate} newItem={this.state.newStatus} />
               </div>
         		</div>
         	</div>
