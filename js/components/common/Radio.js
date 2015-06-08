@@ -1,10 +1,8 @@
 var React = require('react');
 
-var TreatmentHistoryActions = require('../../actions/TreatmentHistoryActions');
-
 var Radio = React.createClass({
 	handleChange: function(e) {
-		TreatmentHistoryActions.changeValue(e.target.value);
+		this.props.actionType(e.target.value);
 	},
 	render: function() {
 		return (

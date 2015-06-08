@@ -140,11 +140,16 @@ function _changeCancerStage(newValue) {
 	_items["generalInfo"]["cancerStage"] = newValue;
 }
 
-function _changeValue(newValue) {
+function _changeGeneticValue(newValue) {
 	_items["generalInfo"]["geneticOrPredisposingAbnormality"] = newValue;
 }
 
+function _changeGeneticType(newValue) {
+	_items["generalInfo"]["geneticOrPredisposingAbnormalityType"] = newValue;
+}
+
 function _changeDiagnosisDate(newValue) {
+	console.log(_items["generalInfo"]["cancerDiagnosisDate"])
 	_items["generalInfo"]["cancerDiagnosisDate"] = newValue;
 }
 
@@ -158,6 +163,7 @@ function _changePCPPhone(newValue) {
 
 function _changePCPEmail(newValue) {
 	_items["generalInfo"]["pcpEmail"] = newValue;
+	console.log(_items["generalInfo"]["pcpEmail"])
 }
 
 function _submitForm() {
@@ -217,8 +223,12 @@ var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
 	      _changeCancerStage(payload.action.newValue);
 	      break;
 
-	    case TreatmentHistoryConstants.CHANGE_VALUE:
-	      _changeValue(payload.action.newValue);
+	    case TreatmentHistoryConstants.CHANGE_GENETIC_VALUE:
+	      _changeGeneticValue(payload.action.newValue);
+	      break;
+
+	    case TreatmentHistoryConstants.CHANGE_GENETIC_TYPE:
+	      _changeGeneticType(payload.action.newValue);
 	      break;
 
 	    case TreatmentHistoryConstants.CHANGE_DIAGNOSIS_DATE:

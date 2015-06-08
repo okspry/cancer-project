@@ -1,5 +1,5 @@
 var React = require('react');
-var TreatmentSummary = require('../../TreatmentSummary');
+var TreatmentsGenInfo = require('../TreatmentsGenInfo');
 var ProcedureSummaryForm = require('./procedure-form/ProcedureSummaryForm');
 
 var Router = require('react-router-component');
@@ -11,7 +11,7 @@ var SurgeryRoutes = React.createClass({
     return (
 
       <Locations contextual>
-        <Location path="/" handler={TreatmentSummary} />
+        <Location path="/" handler={TreatmentsGenInfo} />
         <Location path="/treatments/all-treatments/surgeries/procedure-form" handler={ProcedureSummaryForm} />
       </Locations>
 

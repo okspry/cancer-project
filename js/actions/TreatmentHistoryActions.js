@@ -14,9 +14,15 @@ var TreatmentHistoryActions = {
       newValue: newValue
     });
   },
-  changeValue: function(newValue) {
+  changeGeneticValue: function(newValue) {
     AppDispatcher.handleAction({
-      actionType: TreatmentHistoryConstants.CHANGE_VALUE,
+      actionType: TreatmentHistoryConstants.CHANGE_GENETIC_VALUE,
+      newValue: newValue
+    });
+  },
+  changeGeneticType: function(newValue) {
+    AppDispatcher.handleAction({
+      actionType: TreatmentHistoryConstants.CHANGE_GENETIC_TYPE,
       newValue: newValue
     });
   },

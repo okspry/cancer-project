@@ -1,5 +1,4 @@
 var React = require("react");
-var TreatmentHistoryActions = require("../../actions/TreatmentHistoryActions");
 var Input = require('./Input');
 
 var FormGroup = React.createClass({
@@ -7,9 +6,13 @@ var FormGroup = React.createClass({
 		return (
 
 			<div className="form-group">
-		    <label>{this.props.label}</label>
+		    <label htmlFor={this.props.infoType}>{this.props.label}</label>
 		    <Input
-		    	{...this.props} />
+		    	placeholder={this.props.placeholder}
+		    	id={this.props.infoType}
+		    	type={this.props.type}
+		    	actionType={this.props.actionType}
+		    	value={this.props.value} />
 		  </div>
 
 		);

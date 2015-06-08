@@ -4,13 +4,34 @@ var Chemotherapies = require('./chemotherapies/Chemotherapies');
 
 var Link = require('react-router-component').Link;
 
+var TreatmentHistoryStore = require('../../../../stores/TreatmentHistoryStore');
+
+function getData() {
+  return { 
+    treatmentHistoryItems: TreatmentHistoryStore.getTreatmentHistory(),
+    formOptions: TreatmentHistoryStore.getFormOptions(),
+  }
+}
+
 var TreatmentsGenInfo = React.createClass({
+  getInitialState: function() {
+    return getData();
+  },
+  componentWillMount: function() {
+    TreatmentHistoryStore.addChangeListener(this._onChange);
+  },
+  _onChange: function() {
+    this.setState(getData());
+  },
+  componentWillUnmount: function() {
+    TreatmentHistoryStore.removeChangeListener(this._onChange);
+  },
 	render: function() {
-    var generalInfo = this.props.generalInfo;
-    var formOptions = this.props.formOptions;
-    var surgeries = this.props.surgeries;
-    var chemotherapies = this.props.chemotherapies;
-    var radiationTreatments = this.props.radiationTreatments;
+    var generalInfo = _.get(this.state.treatmentHistoryItems, "generalInfo");
+    var formOptions = (this.state.formOptions, "formOptions");
+    var surgeries = _.get(this.state.treatmentHistoryItems, "surgeries");
+    var chemotherapies = _.get(this.state.treatmentHistoryItems, "chemotherapies");
+    var radiationTreatments = _.get(this.state.treatmentHistoryItems, "radiationTreatments");
 		return (
 
       <div>
@@ -18,7 +39,7 @@ var TreatmentsGenInfo = React.createClass({
           <h4>General History</h4>
           <div className="pull-right">
             <Link 
-              href="/all-treatments/general-history-form"
+              global href="/general-history-form"
               className="glyphicon glyphicon-pencil"></Link>
           </div>
           <div>

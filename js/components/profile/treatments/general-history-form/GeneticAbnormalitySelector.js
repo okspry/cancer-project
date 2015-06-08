@@ -11,10 +11,10 @@ var GeneticAbnormalitySelector = React.createClass({
 			  <label htmlFor="specific-predisposition">If so, what is it?</label>
 			  <SelectBox
 			  	disabledValue={this.props.disabledValue}
-			  	ActionSource={TreatmentHistoryActions}
+			  	actionType={this.props.actionType}
 			  	className="form-control"
 			  	currentVal={this.props.currentVal} 
-			  	data={this.props.geneticAbnormalityOptions} />
+			  	formOptions={this.props.geneticAbnormalityOptions} />
 			</div>
 
 		)

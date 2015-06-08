@@ -1,6 +1,5 @@
 var React = require('react');
 var SelectorGroup = require('../../../common/SelectorGroup');
-var CancerDiagnosisDateSelector = require('./CancerDiagnosisDateSelector');
 var GeneticAbnormality = require('./GeneticAbnormality');
 var FormGroup = require('../../../common/FormGroup');
 var Link = require('react-router-component').Link;
@@ -11,7 +10,6 @@ var TreatmentHistoryForm = React.createClass({
 	render: function() {
 		var generalInfo = this.props.generalInfo;
     var formOptions = this.props.formOptions;
-    var disabledValue = generalInfo["geneticOrPredisposingAbnormality"] == "yes" ? "" : "disabled";
 		return (
 
 			<div className="col-md-8">
@@ -35,14 +33,14 @@ var TreatmentHistoryForm = React.createClass({
 				  	infoType={_.findKey(generalInfo, "cancerDiagnosisDate")}
 				  	label="Diagnosis Date"
 				  	type="date"
-				  	value={generalInfo["cancerDiagnosisDate"]}
+				  	value={_.get(generalInfo, "cancerDiagnosisDate")}
 				  	actionType={TreatmentHistoryActions.changeDiagnosisDate} />
 
 					<GeneticAbnormality
+						currentVal={_.get(generalInfo, "geneticOrPredisposingAbnormality")}
 						yesNoOptions={_.get(formOptions, "geneticOrPredisposingAbnormality")}
 						typeValue={_.get(generalInfo, "geneticOrPredisposingAbnormalityType")}
-						geneticAbnormalityTypes={_.get(formOptions, "geneticOrPredisposingAbnormalityTypes")}
-						disabledValue={disabledValue} />
+						geneticAbnormalityTypes={_.get(formOptions, "geneticOrPredisposingAbnormalityTypes")} />
 
 					<div className="well">
 					  <label>Primary Care Doctor's Information</label>
@@ -51,30 +49,32 @@ var TreatmentHistoryForm = React.createClass({
 					  	label="Name"
 					  	placeholder="First Last"
 					  	type="text"
-					  	value={generalInfo["pcpName"]}
+					  	value={_.get(generalInfo, "pcpName")}
 					  	actionType={TreatmentHistoryActions.changePCPName} />
+
 					  <FormGroup 
 					  	infoType={_.findKey(generalInfo, "pcpPhone")}
 					  	label="Phone"
 					  	placeholder="(555)555-5555"
 					  	type="tel"
-					  	value={generalInfo["pcpPhone"]}
+					  	value={_.get(generalInfo, "pcpPhone")}
 					  	actionType={TreatmentHistoryActions.changePCPPhone} />
+
 					  <FormGroup 
 					  	infoType={_.findKey(generalInfo, "pcpEmail")}
 					  	label="Email"
 					  	placeholder="yourname@email.com"
 					  	type="email"
-					  	value={generalInfo["pcpEmail"]}
+					  	value={_.get(generalInfo, "pcpEmail")}
 					  	actionType={TreatmentHistoryActions.changePCPEmail} />
 					</div>
 
 					<div className="form-group">
 						<Link 
-					    href="/treatments"
+					    href="/profile/treatments"
 					    className="btn btn-primary">Save Changes</Link>
 						<Link 
-							href="/treatments"
+							href="/profile/treatments"
 							className="btn btn-default pad-left">Cancel Changes</Link>
 					</div>
 			
