@@ -61,10 +61,21 @@ var TreatmentHistoryActions = {
     });
   },
 
-
+  selectSurgery: function(index) {
+    AppDispatcher:handleAction({
+      actionType: TreatmentHistoryConstants.SELECT_SURGERY,
+      index: index
+    });
+  },
   changeSurgeryType: function(newValue) {
     AppDispatcher.handleAction({
       actionType: TreatmentHistoryConstants.CHANGE_SURGERY_TYPE,
+      newValue: newValue
+    });
+  },
+  changeSurgeryLocation: function(newValue) {
+    AppDispatcher.handleAction({
+      actionType: TreatmentHistoryConstants.CHANGE_SURGERY_LOCATION,
       newValue: newValue
     });
   },

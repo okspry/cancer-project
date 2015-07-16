@@ -1,10 +1,13 @@
 var React = require('react');
-
 var Link = require('react-router-component').Link;
 
-var Surgery = React.createClass({
-	render: function() {		
+var TreatmentHistoryActions = require('../../../../../actions/TreatmentHistoryActions');
 
+var Surgery = React.createClass({
+  handleClick: function() {
+    TreatmentHistoryActions.selectSurgery(this.props.index);
+  },
+	render: function() {		
     var surgeryInfo = _.get(this.props.surgery, "surgeryInfo");
 
 		return (
@@ -26,7 +29,8 @@ var Surgery = React.createClass({
         </div>
         <div className="pull-right">
           <Link 
-            href="/treatments/all-treatments/surgeries/procedure-form" 
+            onClick={this.handleClick}
+            global href="/procedure-form"
             className="glyphicon glyphicon-pencil"></Link>
         </div>
       </div>

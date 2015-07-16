@@ -1,5 +1,6 @@
 var React = require('react');
 var SelectorGroup = require('../../../../../common/SelectorGroup');
+var FormGroup = require('../../../../../common/FormGroup');
 var Link = require('react-router-component').Link;
 
 var TreatmentHistoryStore = require('../../../../../../stores/TreatmentHistoryStore');
@@ -7,6 +8,7 @@ var TreatmentHistoryActions = require('../../../../../../actions/TreatmentHistor
 
 function getData() {
   return { 
+    currentSurgery: TreatmentHistoryStore.getCurrentSurgery(),
     surgeryTemplateState: TreatmentHistoryStore.getSurgeryTemplate(),
     surgeryFormOptionsState: TreatmentHistoryStore.getSurgeryFormOptions()
   }
@@ -26,9 +28,9 @@ var ProcedureSummaryForm = React.createClass({
     TreatmentHistoryStore.removeChangeListener(this._onChange);
   },
   render: function() {
-
-    var surgeryInfo = _.get(this.props.surgery, "surgeryInfo");
-
+    var surgeryInfo = _.get(this.state.currentSurgery, "surgeryInfo");
+    var surgeryFormOptionsState = this.state.surgeryFormOptionsState;
+    var surgeryTemplateState = this.state.surgeryTemplateState;
     return (
 
       <div className="col-md-8">
@@ -39,6 +41,12 @@ var ProcedureSummaryForm = React.createClass({
             currentVal={_.get(surgeryInfo, "surgeryType")} 
             formOptions={_.get(surgeryFormOptionsState, "surgeryTypes")}
             actionType={TreatmentHistoryActions.changeSurgeryType} />
+
+          <FormGroup 
+            infoType={_.findKey(surgeryInfo, "surgeryLocation")}
+            type="text"
+            value={_.get(surgeryInfo, "surgeryLocation")}
+            actionType={TreatmentHistoryActions.changeSurgeryLocation} />
 
           <div className="form-group">
             <Link 

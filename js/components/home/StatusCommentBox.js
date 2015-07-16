@@ -1,9 +1,10 @@
 var React = require('react');
+
 var FeedActions = require("../../actions/FeedActions");
 
 var StatusCommentBox = React.createClass({
-  handleChange: function() {
-    var newComment = this.refs.comment.getDOMNode().value;
+  handleChange: function(e) {
+    var newComment = e.target.value;
     FeedActions.changeComment(this.props.index, newComment);
   },
   handleKeyPress: function(e) {

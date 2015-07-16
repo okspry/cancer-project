@@ -20,7 +20,6 @@ var newStatusTemplate = {
 		"timestamp": "Jan"
 	}
 };
-var newStatusTemplateGetter = _.clone(newStatusTemplate);
 
 var _items = [
 	{
@@ -54,8 +53,7 @@ var _items = [
 ];
 
 function _changeStatus(message) {
-	var templateItem = newStatusTemplate;
-	templateItem["content"] = message;
+	newStatusTemplate["content"] = message;
 }
 
 function _changeShare(newValue) {
@@ -67,7 +65,22 @@ function _post(item) {
 }
 
 function _newTemplate() {
-	newStatusTemplate = newStatusTemplateGetter;
+	newStatusTemplate = {
+		"userID": "Jeremy Leventhal",
+		"pictureURL": "../../assets/jer_bear_photo.jpg",
+		"content": "",
+		"shareWith": ["My buddies", "My doctor"],
+		"sharedValue": "",
+		"timestamp": new Date().toString(),
+		"children": [],
+		"comment": {
+			"userID": "Jeremy Leventhal",
+			"pictureURL": "../../assets/jer_bear_photo.jpg",
+			"content": "",
+			"timestamp": "Jan"
+		}
+	};
+	newStatusTemplate["content"] = "";
 }
 
 function _changeComment(index, comment) {
@@ -75,12 +88,17 @@ function _changeComment(index, comment) {
 }
 
 function _postComment(index, item) {
-	var cloneItem = _.clone(item);
-	_items[index]["children"].push(cloneItem);
+	_items[index]["children"].push(item);
 }
 
 function _clearCommentTemplate(index) {
-	_items[index]["comment"]["content"] = "";
+	var commentTemplate = {
+		"userID": "Jeremy Leventhal",
+		"pictureURL": "../../assets/jer_bear_photo.jpg",
+		"content": "",
+		"timestamp": "Jan"
+	}
+	_items[index]["comment"] = commentTemplate;
 }
 
 var FeedStore = assign({}, EventEmitter.prototype, {

@@ -5,8 +5,9 @@ var Radio = require('../../../common/Radio');
 var TreatmentHistoryActions = require('../../../../actions/TreatmentHistoryActions');
 
 var GeneticAbnormality = React.createClass({
-	render: function() {
-		var disabledValue = this.props.currentVal == "yes" ? "" : "disabled";
+	render: function() {    
+		var disabledValue = this.props.yesNoValue == "yes" ? "" : "disabled";
+		console.log(this.props.yesNoValue)
 		return (
 
 			<div className="panel panel-default">
@@ -16,17 +17,21 @@ var GeneticAbnormality = React.createClass({
 			      <br />
 			      {
 			      	_.map(this.props.yesNoOptions, function(option, i) {
-			      		return <Radio key={i} value={option} actionType={TreatmentHistoryActions.changeGeneticValue} />
+			      		return <Radio 
+			      							key={i} 
+			      							onChange={this.handleClick} 
+			      							value={option} 
+			      							actionType={TreatmentHistoryActions.changeGeneticValue} />
 			      	})
 			      }
 						<br />
 			    </div>
 		      <GeneticAbnormalitySelector
-		      	ref="mainselector"
-		      	disabledValue={disabledValue}
-		      	currentVal={this.props.typeValue}
+		      	yesNoValue={this.props.yesNoValue}
+		      	typeValue={this.props.typeValue}
 		      	actionType={TreatmentHistoryActions.changeGeneticType}
-		      	geneticAbnormalityOptions={this.props.geneticAbnormalityTypes} />
+		      	geneticAbnormalityOptions={this.props.geneticAbnormalityTypes}
+		      	disabledValue={disabledValue} />
 			  </div>
 			</div>
 

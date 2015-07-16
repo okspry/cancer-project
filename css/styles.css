@@ -4,7 +4,7 @@
 }
 
 .btn.pad-left {
-	margin-left: 5px;
+	margin-left: 10px;
 }
 
 .navbar {
@@ -89,6 +89,7 @@ li.media.friendlist-item {
 .separator {
 	padding: 5px;
 }
+
 .feed-comment {
 	border-top: 1px solid #ddd;
 }

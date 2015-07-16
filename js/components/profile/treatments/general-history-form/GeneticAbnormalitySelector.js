@@ -1,8 +1,6 @@
 var React = require('react');
 var SelectBox = require('../../../common/SelectBox');
 
-var TreatmentHistoryActions = require('../../../../actions/TreatmentHistoryActions');
-
 var GeneticAbnormalitySelector = React.createClass({
 	render: function() {
 		return (
@@ -13,7 +11,7 @@ var GeneticAbnormalitySelector = React.createClass({
 			  	disabledValue={this.props.disabledValue}
 			  	actionType={this.props.actionType}
 			  	className="form-control"
-			  	currentVal={this.props.currentVal} 
+			  	currentVal={this.props.typeValue}
 			  	formOptions={this.props.geneticAbnormalityOptions} />
 			</div>
 

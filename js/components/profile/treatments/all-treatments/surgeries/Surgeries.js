@@ -12,7 +12,7 @@ var Surgeries = React.createClass({
   			<div className="clearfix">
           <h4>Surgeries&emsp;
             <Link 
-              href="/treatments/all-treatments/surgeries/procedure-form"
+              global href={"/procedure-form"}
               className="btn btn-primary btn-sm">Add</Link>
           </h4>
         </div>

@@ -3,26 +3,9 @@ var TextBox = require('../common/TextBox');
 var SelectBox = require('../common/SelectBox');
 var PostButton = require('../common/PostButton');
 
-var FeedStore = require('../../stores/FeedStore');
 var FeedActions = require('../../actions/FeedActions');
 
-function newStatus() {
-  return { newStatus: FeedStore.getNewStatusTemplate() }
-}
-
 var StatusUpdater = React.createClass({
-  getInitialState: function() {
-    return newStatus();
-  },
-  componentWillMount: function() {
-    FeedStore.addChangeListener(this._onChange);
-  },
-  _onChange: function() {
-    this.setState(newStatus());
-  },
-  componentWillUnmount: function() {
-    FeedStore.removeChangeListener(this._onChange);
-  },
 	render: function() {
 		return (
 
@@ -30,13 +13,20 @@ var StatusUpdater = React.createClass({
         <div className="form-group">
         	<div className="panel panel-default">
         		<div className="panel-body">
-        			<TextBox newItem={this.state.newStatus} />
+        			<TextBox 
+                placeholder="Share your thoughts..."
+                content={_.get(this.props.newStatus, "content")}
+                actionType={FeedActions.changeStatus} />
         		</div>
         		<div className="panel-footer clearfix">
               <div className="pull-right">
                 <span>Share with&ensp;</span>
-                <SelectBox actionType={FeedActions.changeShare} formOptions={this.state.newStatus["shareWith"]} />
-          			<PostButton actionPost={FeedActions.post} actionNewTemplate={FeedActions.newTemplate} newItem={this.state.newStatus} />
+                <SelectBox actionType={FeedActions.changeShare} formOptions={this.props.newStatus["shareWith"]} />
+          			<PostButton 
+                  label="Post"
+                  actionPost={FeedActions.post} 
+                  actionNewTemplate={FeedActions.newTemplate} 
+                  item={this.props.newStatus} />
               </div>
         		</div>
         	</div>

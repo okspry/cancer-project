@@ -91,10 +91,10 @@ var _items = {
 			"surgeryInfo": {
 				"id": "surgery2",
 				"surgeryType": ["Colostomy or Ileostomy Lymph node removal/dissection"],
-				"surgeryDate": "2012-02-14",
-				"surgeryCity": "Indianapolis, IN",
-				"surgeryLocation": "Indiana University",
-				"surgeonName": "Pam Hand, MD",
+				"surgeryDate": "2012-08-12",
+				"surgeryCity": "Houston, TX",
+				"surgeryLocation": "Texas University",
+				"surgeonName": "Lurch Lick, MD",
 				"surgeonPhone": "(317)555-2333",
 				"surgeonEmail": "handtomouth@iu.edu"
 			}
@@ -130,6 +130,10 @@ var _items = {
 	]
 };
 
+var currentSurgery;
+
+var currentSurgeries = _items["surgeries"];
+
 /**************************************/
 
 function _changeCancerType(newValue) {
@@ -149,7 +153,6 @@ function _changeGeneticType(newValue) {
 }
 
 function _changeDiagnosisDate(newValue) {
-	console.log(_items["generalInfo"]["cancerDiagnosisDate"])
 	_items["generalInfo"]["cancerDiagnosisDate"] = newValue;
 }
 
@@ -163,7 +166,6 @@ function _changePCPPhone(newValue) {
 
 function _changePCPEmail(newValue) {
 	_items["generalInfo"]["pcpEmail"] = newValue;
-	console.log(_items["generalInfo"]["pcpEmail"])
 }
 
 function _submitForm() {
@@ -174,10 +176,16 @@ function _cancelForm() {
 	return
 }
 
+function _selectSurgery(index) {
+	currentSurgery = currentSurgeries[index];
+}
 
 function _changeSurgeryType(newValue) {
-	console.log(_items["surgeries"][0]["surgeryInfo"])
-	_items["surgeries"][0]["surgeryInfo"] = newValue;
+	currentSurgery["surgeryType"] = newValue;
+}
+
+function _changeSurgeryLocation(newValue) {
+	currentSurgery["surgeryLocation"] = newValue;
 }
 
 var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
@@ -188,6 +196,10 @@ var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
 
   getFormOptions: function() {
     return _formOptions;
+  },
+
+  getCurrentSurgery: function() {
+  	return currentSurgery;
   },
 
   getSurgeryTemplate: function() {
@@ -256,11 +268,17 @@ var TreatmentHistoryStore = assign({}, EventEmitter.prototype, {
 	      break;
 
 
+	    case TreatmentHistoryConstants.SELECT_SURGERY:
+	    	_selectSurgery(payload.action.index);
+	    	break;
 
 	    case TreatmentHistoryConstants.CHANGE_SURGERY_TYPE:
-	      _changeSurgeryType(payload.action.index, payload.action.newValue);
+	      _changeSurgeryType(payload.action.newValue);
 	      break;
 
+	    case TreatmentHistoryConstants.CHANGE_SURGERY_LOCATION:
+	      _changeSurgeryLocation(payload.action.newValue);
+	      break;
 	  }
 
 	  TreatmentHistoryStore.emitChange();

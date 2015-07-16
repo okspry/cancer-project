@@ -5,11 +5,32 @@ var FormGroup = require('../../../common/FormGroup');
 var Link = require('react-router-component').Link;
 
 var TreatmentHistoryActions = require('../../../../actions/TreatmentHistoryActions');
+var TreatmentHistoryStore = require('../../../../stores/TreatmentHistoryStore');
+
+function getData() {
+  return { 
+  	generalInfo: TreatmentHistoryStore.getTreatmentHistory(),
+    formOptions: TreatmentHistoryStore.getFormOptions()
+  }
+}
 
 var TreatmentHistoryForm = React.createClass({
+	getInitialState: function() {
+		return getData();
+	},
+  componentWillMount: function() {
+    TreatmentHistoryStore.addChangeListener(this._onChange);
+  },
+  _onChange: function() {
+    this.setState(getData());
+  },
+  componentWillUnmount: function() {
+    TreatmentHistoryStore.removeChangeListener(this._onChange);
+  },
 	render: function() {
-		var generalInfo = this.props.generalInfo;
-    var formOptions = this.props.formOptions;
+		var generalInfo = this.state.generalInfo;
+    var formOptions = this.state.formOptions;
+    var yesNoValue = _.get(generalInfo, "geneticOrPredisposingAbnormality");
 		return (
 
 			<div className="col-md-8">
@@ -37,7 +58,7 @@ var TreatmentHistoryForm = React.createClass({
 				  	actionType={TreatmentHistoryActions.changeDiagnosisDate} />
 
 					<GeneticAbnormality
-						currentVal={_.get(generalInfo, "geneticOrPredisposingAbnormality")}
+						yesNoValue={yesNoValue}
 						yesNoOptions={_.get(formOptions, "geneticOrPredisposingAbnormality")}
 						typeValue={_.get(generalInfo, "geneticOrPredisposingAbnormalityType")}
 						geneticAbnormalityTypes={_.get(formOptions, "geneticOrPredisposingAbnormalityTypes")} />

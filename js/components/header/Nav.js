@@ -27,7 +27,7 @@ var Nav = React.createClass({
               <Link href="/calendar"><span className="glyphicon glyphicon-calendar" aria-hidden="true"></span></Link>
             </li>
             <li>
-              <Link href="../NotFoundPage.js"><span className="glyphicon glyphicon-envelope" aria-hidden="true"></span></Link>
+              <Link href="/messages"><span className="glyphicon glyphicon-envelope" aria-hidden="true"></span></Link>
             </li>
             <li>
               <Link href="../NotFoundPage.js"><span>Logout </span><span className="glyphicon glyphicon-log-out" aria-hidden="true"></span></Link>

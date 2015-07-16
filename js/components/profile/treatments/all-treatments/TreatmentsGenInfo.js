@@ -8,8 +8,7 @@ var TreatmentHistoryStore = require('../../../../stores/TreatmentHistoryStore');
 
 function getData() {
   return { 
-    treatmentHistoryItems: TreatmentHistoryStore.getTreatmentHistory(),
-    formOptions: TreatmentHistoryStore.getFormOptions(),
+    treatmentHistoryItems: TreatmentHistoryStore.getTreatmentHistory()
   }
 }
 
@@ -28,7 +27,6 @@ var TreatmentsGenInfo = React.createClass({
   },
 	render: function() {
     var generalInfo = _.get(this.state.treatmentHistoryItems, "generalInfo");
-    var formOptions = (this.state.formOptions, "formOptions");
     var surgeries = _.get(this.state.treatmentHistoryItems, "surgeries");
     var chemotherapies = _.get(this.state.treatmentHistoryItems, "chemotherapies");
     var radiationTreatments = _.get(this.state.treatmentHistoryItems, "radiationTreatments");
@@ -53,7 +51,7 @@ var TreatmentsGenInfo = React.createClass({
             </div>
             <div>
               <label>Genetic or Predisposing Abnormality&emsp;</label>
-              <span>{_.get(generalInfo, "geneticOrPredisposingAbnormality")}</span>
+              <span>{_.get(generalInfo, "geneticOrPredisposingAbnormalityType")}</span>
             </div>
             <div>
               <label>Primary Care Provider&emsp;</label>
